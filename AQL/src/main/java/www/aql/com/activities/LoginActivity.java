@@ -13,5 +13,8 @@ public class LoginActivity extends BaseActivity {
         setContentView(R.layout.activity_login);
 
         ImageView img = (ImageView) findViewById(R.id.img_splash);
+
+
+        img.setImageResource(R.drawable.bg_splash);
     }
 }
