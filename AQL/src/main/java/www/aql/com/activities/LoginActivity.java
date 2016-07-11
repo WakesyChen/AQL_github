@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 
 import www.aql.com.R;
+import www.aql.com.base.BaseActivity;
 
 public class LoginActivity extends BaseActivity {
 

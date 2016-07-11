@@ -1,11 +1,11 @@
 package www.aql.com.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 
 import www.aql.com.R;
+import www.aql.com.base.BaseActivity;
 
 public class SplashActivity extends BaseActivity {
 
@@ -19,11 +19,9 @@ public class SplashActivity extends BaseActivity {
     }
 
     public void click(View view) {
-        super.click(view);
         switch (view.getId()) {
             case R.id.btn_splash_entering:
-                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-                startActivity(intent);
+                startActivity(MainActivity.class);
                 finish();
                 break;
         }
