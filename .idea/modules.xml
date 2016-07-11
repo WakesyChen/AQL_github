@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AQL/AQL.iml" filepath="$PROJECT_DIR$/AQL/AQL.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AQL/app.iml" filepath="$PROJECT_DIR$/AQL/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/aql.iml" filepath="$PROJECT_DIR$/aql.iml" />
+    </modules>
+  </component>
+</project>
