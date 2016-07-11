@@ -24,6 +24,10 @@ public class BaseActivity extends Activity {
         super.onCreate(savedInstanceState);
     }
 
+    /**
+     *
+     * @param view
+     */
     public void click(View view) {
         switch (view.getId()) {
         }
