@@ -9,4 +9,35 @@
     <color name="gray">@android:color/darker_gray</color>
     <color name="red">#FE0000</color>
 
+    <!-- 全局背景色 -->
+    <color name="global_color_bg">#343843</color>
+    <color name="global_color_gray_bg">#f4f4f4</color>
+    <color name="global_color_white">#FFFFFF</color>
+    <color name="global_color_white_gray">#e2e2e2</color>
+    <color name="global_color_gray">#eeeeee</color>
+    <color name="global_color_gray_light">#d6dbde</color>
+    <color name="global_color_gray_lighter">#a09f9f</color>
+    <color name="global_color_gray_dark">#666666</color>
+    <color name="global_color_blue">#05aff0</color>
+    <color name="global_color_blue_gray">#a0aac7</color>
+    <color name="global_color_blue_gray_dark">#494c5d</color>
+    <color name="global_color_blue_light">#05c475</color>
+    <color name="global_color_green">#07d078</color>
+    <color name="global_color_green_light">#79f55c</color>
+    <color name="global_color_green_blue">#34f7e1</color>
+    <color name="global_color_green_blue_dark">#06b399</color>
+    <color name="global_color_yellow">#ffc602</color>
+    <color name="global_color_yellow_dark">#fdd000</color>
+    <color name="global_color_orange">#ffb739</color>
+    <color name="global_color_orange_yellow">#ffd19b</color>
+    <color name="global_color_red">#ff4337</color>
+    <color name="global_color_pink">#ffe1df</color>
+    <color name="global_color_red_light">#f74c32</color>
+    <color name="global_color_red_dark">#c0272f</color>
+    <color name="global_color_black">#111111</color>
+    <color name="global_color_black_light">#2f323b</color>
+    <color name="background_tab_pressed">#6633B5E5</color>
+    <color name="general_cyan">#119e97</color>
+    <color name="general_cyan_dark">#0e7e79</color>
+
 </resources>

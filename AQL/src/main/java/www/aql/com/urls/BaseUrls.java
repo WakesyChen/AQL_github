@@ -3,7 +3,7 @@ package www.aql.com.urls;
 /**
  * Created by Jason on 2016/7/4.
  */
-public interface AQLUrls {
+public interface BaseUrls {
     /**
      * 服务器地址
      */

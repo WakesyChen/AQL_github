@@ -19,6 +19,7 @@
     <dimen name="distance_35dp">35dp</dimen>
     <dimen name="distance_40dp">40dp</dimen>
     <dimen name="distance_50dp">50dp</dimen>
+    <dimen name="distance_60dp">60dp</dimen>
     <dimen name="distance_title">60dp</dimen>
     <dimen name="distance_70dp">70dp</dimen>
     <dimen name="distance_80dp">80dp</dimen>

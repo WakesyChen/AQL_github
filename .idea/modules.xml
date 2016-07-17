@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AQL/AQL.iml" filepath="$PROJECT_DIR$/AQL/AQL.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AQL_github.iml" filepath="$PROJECT_DIR$/AQL_github.iml" />
       <module fileurl="file://$PROJECT_DIR$/AQL/app.iml" filepath="$PROJECT_DIR$/AQL/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/aql.iml" filepath="$PROJECT_DIR$/aql.iml" />
     </modules>

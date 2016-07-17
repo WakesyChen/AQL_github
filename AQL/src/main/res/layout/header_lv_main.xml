@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".activities.main.MainActivity">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        />
+
+    <RadioGroup
+        android:id="@+id/rg_dots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/vp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/vp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/img_international"
+            android:layout_width="@dimen/distance_0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/distance_10dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/international"/>
+
+        <ImageView
+            android:id="@+id/img_innerOfCountry"
+            android:layout_width="@dimen/distance_0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/distance_10dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/innercountry"/>
+
+        <ImageView
+            android:id="@+id/img_outerOfCountry"
+            android:layout_width="@dimen/distance_0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/distance_10dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/outercountry"/>
+
+        <ImageView
+            android:id="@+id/img_more"
+            android:layout_width="@dimen/distance_0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/distance_10dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/more"/>
+    </LinearLayout>
+</RelativeLayout>
