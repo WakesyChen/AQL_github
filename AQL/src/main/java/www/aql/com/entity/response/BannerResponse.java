@@ -5,12 +5,12 @@ import java.util.List;
 /**
  * Created by Jason on 2016/7/17.
  */
-public class ListBanner extends BaseResponse {
+public class BannerResponse extends BaseResponse {
     public List<Banner> data;
 
     @Override
     public String toString() {
-        return "ListBanner{" +
+        return "BannerResponse{" +
                 "data=" + data +
                 '}';
     }

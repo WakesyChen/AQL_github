@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        />
+
+    <ImageView
+        android:id="@+id/img_search"
+        android:layout_width="@dimen/distance_20dp"
+        android:layout_height="@dimen/distance_20dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="@dimen/distance_10dp"
+        android:clickable="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/search"/>
+
+    <ImageView
+        android:id="@+id/img_user_center"
+        android:layout_width="@dimen/distance_20dp"
+        android:layout_height="@dimen/distance_20dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="@dimen/distance_10dp"
+        android:clickable="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/user_center"/>
+
+    <RadioGroup
+        android:id="@+id/rg_dots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/vp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:orientation="horizontal"
+        />
+
+    <GridView
+        android:id="@+id/gv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/distance_120dp"
+        android:layout_below="@id/vp"
+        android:columnWidth="@dimen/distance_100dp"
+        android:horizontalSpacing="@dimen/distance_10dp"
+        android:numColumns="4"
+        android:padding="@dimen/distance_10dp"
+        android:stretchMode="columnWidth"/>
+
+</RelativeLayout>

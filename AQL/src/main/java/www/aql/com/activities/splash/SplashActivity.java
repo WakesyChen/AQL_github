@@ -12,7 +12,7 @@ import www.aql.com.utils.ActivitySkipHelper;
 import www.aql.com.utils.SPConfig;
 import www.aql.com.utils.SPUtils;
 
-public class SplashActivity extends BaseActivity implements ISplashView {
+public class SplashActivity extends BaseActivity implements SplashContact.ISplashView {
     Context context = this;
     private SplashPresenter presenter;
 
@@ -51,17 +51,19 @@ public class SplashActivity extends BaseActivity implements ISplashView {
     }
 
     @Override
-    public void finishedLoadToken() {
+    public void successLoadToken() {
         run();
     }
 
     @Override
-    public void loadFail() {
+    public void loadFail(String errMsg) {
+        super.loadFail(errMsg);
         run();
     }
 
     @Override
     public void netException() {
+        super.netException();
         run();
     }
 }

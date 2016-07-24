@@ -8,12 +8,13 @@ import android.view.View;
 import www.aql.com.R;
 import www.aql.com.applicaton.BaseApplication;
 import www.aql.com.broadcast.NetState;
-import www.aql.com.utils.CommonUtils;
+import www.aql.com.interfaces.IBaseView;
+import www.aql.com.utils.MyUtils;
 
 /**
  * Created by Jason on 2016/7/5.
  */
-public class BaseActivity extends Activity {
+public class BaseActivity extends Activity implements IBaseView {
 
     private NetState receiver;
 
@@ -30,7 +31,7 @@ public class BaseActivity extends Activity {
         }
 
         //网络状态监听
-        receiver = CommonUtils.monitorNetState(this);
+        receiver = MyUtils.monitorNetState(this);
     }
 
     public void click(View view) {
@@ -45,6 +46,16 @@ public class BaseActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(receiver);
+    }
+
+    @Override
+    public void loadFail(String errMsg) {
+        MyUtils.showToast(this, "请求失败:" + errMsg);
+    }
+
+    @Override
+    public void netException() {
+        MyUtils.showToast(this, "服务器无响应");
     }
 }
 

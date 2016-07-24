@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="www.aql.com.activities.innercountry.InnerCountryActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/distance_title"
+        android:background="@color/colorPrimary">
+
+        <include layout="@layout/imageview_back"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="国内"
+            android:textColor="@color/white"
+            android:textSize="@dimen/ts_20sp"/>
+
+        <ImageView
+            android:id="@+id/img_user_center"
+            android:layout_width="@dimen/distance_20dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/distance_10dp"
+            android:clickable="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/user_center"/>
+    </RelativeLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_title">
+
+        <ListView
+            android:id="@+id/lv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:listSelector="@android:color/transparent"/>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</RelativeLayout>

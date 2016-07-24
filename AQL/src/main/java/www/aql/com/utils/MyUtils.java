@@ -5,6 +5,7 @@ import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
@@ -23,8 +24,11 @@ import java.util.regex.Pattern;
 
 import www.aql.com.broadcast.NetState;
 
-public class CommonUtils {
-    private static Toast toast = null;
+public class MyUtils {
+
+    public static void showLog(String log) {
+        Log.i("jason", log);
+    }
 
     /**
      * 弹出短时间吐司
@@ -180,22 +184,12 @@ public class CommonUtils {
         return receiver;
     }
 
-    public static void toast(Context context, String msg) {
-        if (toast == null) {
-            toast = Toast.makeText(context, msg, Toast.LENGTH_SHORT);
-        } else {
-            toast.setText(msg);
-        }
-        toast.show();
-    }
-
     /**
      * 顶部刷新的样式
      *
      * @param swipe
      */
     public static void setSwipeStyle(SwipeRefreshLayout swipe) {
-
         swipe.setColorSchemeResources(android.R.color.holo_red_light, android.R.color.holo_green_light, android.R
                 .color.holo_blue_bright, android.R.color.holo_orange_light);
     }
