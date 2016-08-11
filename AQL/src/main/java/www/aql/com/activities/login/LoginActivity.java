@@ -163,4 +163,14 @@ public class LoginActivity extends BaseActivity implements LoginContact.ILoginVi
     public void onCancel(Platform platform, int i) {
         MyUtils.showToast(LoginActivity.this, "授权失败");
     }
+
+    @Override
+    public void loadFail(String errMsg) {
+
+    }
+
+    @Override
+    public void netException() {
+
+    }
 }

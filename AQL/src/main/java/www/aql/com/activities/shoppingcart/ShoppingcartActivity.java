@@ -87,4 +87,14 @@ public class ShoppingcartActivity extends BaseActivity implements ShopCartContra
                 break;
         }
     }
+
+    @Override
+    public void loadFail(String errMsg) {
+
+    }
+
+    @Override
+    public void netException() {
+
+    }
 }

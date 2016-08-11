@@ -41,7 +41,6 @@ public class SplashActivity extends BaseActivity implements SplashContact.ISplas
     }
 
     public void click(View view) {
-        super.click(view);
         switch (view.getId()) {
             case R.id.btn_splash_entering:
                 ActivitySkipHelper.skipToActivity(SplashActivity.this, MainActivity.class);
@@ -57,13 +56,11 @@ public class SplashActivity extends BaseActivity implements SplashContact.ISplas
 
     @Override
     public void loadFail(String errMsg) {
-        super.loadFail(errMsg);
         run();
     }
 
     @Override
     public void netException() {
-        super.netException();
         run();
     }
 }

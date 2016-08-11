@@ -151,4 +151,14 @@ public class RegistActivity extends BaseActivity implements RegistContact.IRegis
             }
         }, 1, 1, TimeUnit.SECONDS);
     }
+
+    @Override
+    public void loadFail(String errMsg) {
+
+    }
+
+    @Override
+    public void netException() {
+
+    }
 }

@@ -6,7 +6,7 @@ android {
         release {
             keyAlias 'aql'
             keyPassword 'wqg123'
-            storeFile file('E:/AQL_github/AQL_github/AQL_release_keystore.jks')
+            storeFile file('AQL_release_keystore.jks')
             storePassword 'wqg123'
         }
     }

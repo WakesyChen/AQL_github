@@ -400,4 +400,14 @@ public class ApplyForCompanyUserActivity extends BaseActivity implements ApplyFo
         //开始申请
 //        presenter.requestToBeCompanyUser();
     }
+
+    @Override
+    public void loadFail(String errMsg) {
+
+    }
+
+    @Override
+    public void netException() {
+
+    }
 }
