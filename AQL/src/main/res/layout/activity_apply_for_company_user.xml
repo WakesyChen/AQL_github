@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="www.aql.com.activities.applyforcompanyuser.ApplyForCompanyUserActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/distance_title"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:layout_width="34dp"
+            android:layout_height="@dimen/distance_60dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/distance_10dp"
+            android:clickable="true"
+            android:onClick="click"
+            android:padding="@dimen/distance_10dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/back"
+            android:visibility="gone"/>
+
+        <include layout="@layout/imageview_back"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="申请企业用户"
+            android:textColor="@color/white"
+            android:textSize="@dimen/ts_20sp"/>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_title"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/rl_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="@dimen/distance_10dp"
+                    android:text="姓名"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/ts_16sp"/>
+
+                <EditText
+                    android:id="@+id/et_input_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_name"
+                    android:background="@android:color/transparent"
+                    android:inputType="text"
+                    android:padding="@dimen/distance_10dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/ts_16sp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_tel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rl_name"
+                >
+
+                <TextView
+                    android:id="@+id/tv_tel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="@dimen/distance_10dp"
+                    android:text="联系电话"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/ts_16sp"/>
+
+                <EditText
+                    android:id="@+id/et_input_tel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_tel"
+                    android:background="@android:color/transparent"
+                    android:inputType="phone"
+                    android:padding="@dimen/distance_10dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/ts_16sp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_identify"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rl_tel"
+                >
+
+                <TextView
+                    android:id="@+id/tv_identify"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="@dimen/distance_10dp"
+                    android:text="身份证号"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/ts_16sp"/>
+
+                <EditText
+                    android:id="@+id/et_input_identitfy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_identify"
+                    android:background="@android:color/transparent"
+                    android:inputType="number"
+                    android:padding="@dimen/distance_10dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/ts_16sp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_business_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rl_identify"
+                >
+
+                <TextView
+                    android:id="@+id/tv_business_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="@dimen/distance_10dp"
+                    android:text="经营类别"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/ts_16sp"/>
+
+                <EditText
+                    android:id="@+id/et_business_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_business_type"
+                    android:background="@android:color/transparent"
+                    android:inputType="text"
+                    android:padding="@dimen/distance_10dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/ts_16sp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_alipay_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rl_business_type"
+                >
+
+                <TextView
+                    android:id="@+id/tv_alipay_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="@dimen/distance_10dp"
+                    android:text="支付宝账号"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/ts_16sp"/>
+
+                <EditText
+                    android:id="@+id/et_alipay_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_alipay_number"
+                    android:background="@android:color/transparent"
+                    android:inputType="text"
+                    android:padding="@dimen/distance_10dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/ts_16sp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_shop_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rl_alipay_number"
+                >
+
+                <TextView
+                    android:id="@+id/tv_shop_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/distance_10dp"
+                    android:text="店铺地址"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/ts_16sp"/>
+
+                <EditText
+                    android:id="@+id/et_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_shop_address"
+                    android:background="@android:color/transparent"
+                    android:gravity="top"
+                    android:inputType="textMultiLine"
+                    android:maxLines="3"
+                    android:minLines="3"
+                    android:paddingBottom="@dimen/distance_10dp"
+                    android:paddingLeft="@dimen/distance_10dp"
+                    android:paddingRight="@dimen/distance_10dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/ts_16sp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_presenter_identify"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rl_shop_address"
+                android:layout_marginTop="@dimen/distance_20dp"
+                >
+
+                <TextView
+                    android:id="@+id/tv_presenter_identify"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="@dimen/distance_10dp"
+                    android:text="法人身份证-正反面"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/ts_16sp"/>
+
+                <TextView
+                    android:id="@+id/tv_identify_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_presenter_identify"
+                    android:padding="@dimen/distance_10dp"
+                    android:text="1份"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/ts_16sp"/>
+
+
+                <TextView
+                    android:id="@+id/tv_upload_identify"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/distance_20dp"
+                    android:background="@drawable/shape_upload_pic"
+                    android:clickable="true"
+                    android:paddingLeft="@dimen/distance_5dp"
+                    android:paddingRight="@dimen/distance_5dp"
+                    android:text="上传照片"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/ts_14sp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_show_identify_pic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rl_presenter_identify"
+                >
+
+                <TextView
+                    android:id="@+id/tv_identify_tip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/distance_10dp"
+                    android:text="请上传在有效期内的企业法人身份证正反面扫描件"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/ts_16sp"
+                    android:visibility="visible"/>
+
+                <GridView
+                    android:id="@+id/gv_show_identify"
+                    android:layout_width="match_parent"
+                    android:layout_height="134dp"
+                    android:layout_below="@id/tv_identify_tip"
+                    android:columnWidth="@dimen/distance_200dp"
+                    android:horizontalSpacing="@dimen/distance_10dp"
+                    android:numColumns="2"
+                    android:stretchMode="columnWidth"
+                    android:verticalSpacing="@dimen/distance_10dp"
+                    android:visibility="gone"
+                    />
+
+                <LinearLayout
+                    android:id="@+id/ll_show_identify_pic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_identify_tip"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/img_identify_pic1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/distance_10dp"
+                        android:layout_marginRight="@dimen/distance_5dp"
+                        android:layout_weight="1"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/identify_front"/>
+
+                    <ImageView
+                        android:id="@+id/img_identify_pic2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/distance_5dp"
+                        android:layout_marginRight="@dimen/distance_10dp"
+                        android:layout_weight="1"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/identify_background"/>
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_business_license"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rl_show_identify_pic"
+                android:layout_marginTop="@dimen/distance_20dp"
+                >
+
+                <TextView
+                    android:id="@+id/tv_business_license"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="@dimen/distance_10dp"
+                    android:text="营业执照-彩色扫描件"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/ts_16sp"/>
+
+                <TextView
+                    android:id="@+id/tv_business_license_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_business_license"
+                    android:padding="@dimen/distance_10dp"
+                    android:text="1份"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/ts_16sp"/>
+
+
+                <TextView
+                    android:id="@+id/tv_upload_license"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/distance_20dp"
+                    android:background="@drawable/shape_upload_pic"
+                    android:clickable="true"
+                    android:paddingLeft="@dimen/distance_5dp"
+                    android:paddingRight="@dimen/distance_5dp"
+                    android:text="上传照片"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/ts_14sp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_show_business_license_pic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rl_business_license"
+                >
+
+                <TextView
+                    android:id="@+id/tv_business_license_tip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/distance_10dp"
+                    android:text="请上传加盖企业公章的营业执照正本或最新年检副本的彩色扫描件"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/ts_16sp"
+                    android:visibility="visible"/>
+
+                <GridView
+                    android:id="@+id/gv_show_license"
+                    android:layout_width="match_parent"
+                    android:layout_height="134dp"
+                    android:layout_below="@id/tv_business_license_tip"
+                    android:columnWidth="@dimen/distance_200dp"
+                    android:horizontalSpacing="@dimen/distance_10dp"
+                    android:numColumns="2"
+                    android:stretchMode="columnWidth"
+                    android:verticalSpacing="@dimen/distance_10dp"
+                    android:visibility="gone"
+                    />
+
+                <LinearLayout
+                    android:id="@+id/ll_show_license_pic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_business_license_tip"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/img_business_license_pic"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/distance_10dp"
+                        android:layout_marginRight="@dimen/distance_5dp"
+                        android:layout_weight="1"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/business_license"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/distance_5dp"
+                        android:layout_weight="1"
+                        android:scaleType="centerInside"
+                        />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_ensure_apply"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rl_show_business_license_pic"
+                android:layout_marginLeft="@dimen/distance_10dp"
+                android:layout_marginRight="@dimen/distance_10dp"
+                android:background="@drawable/shape_color_primary_corner"
+                android:gravity="center"
+                android:padding="@dimen/distance_10dp"
+                android:text="确认申请"
+                android:textColor="@color/white"
+                android:textSize="@dimen/ts_18sp"/>
+
+            <LinearLayout
+                android:id="@+id/rl_show_protocal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_ensure_apply"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/distance_20dp"
+                android:layout_marginTop="@dimen/distance_5dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="点击申请，即表示您同意"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/ts_12sp"/>
+
+                <TextView
+                    android:id="@+id/tv_show_protocal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="《爱骑旅企业用户代理协议》"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/ts_12sp"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

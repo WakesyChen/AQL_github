@@ -4,6 +4,205 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="www.aql.com.activities.LoginActivity">
+    tools:context=".activities.login.LoginActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="登录"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"/>
+
+        <include layout="@layout/imageview_back"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_describe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/distance_30dp"
+        android:layout_marginTop="@dimen/distance_30dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="@dimen/distance_100dp"
+            android:layout_height="1px"
+            android:background="@color/gray"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="爱骑旅账号登录"
+            />
+
+        <TextView
+            android:layout_width="@dimen/distance_100dp"
+            android:layout_height="1px"
+            android:background="@color/gray"
+            />
+
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/et_userphone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_describe"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/shape_et_username_password"
+        android:drawableLeft="@drawable/username"
+        android:drawablePadding="@dimen/distance_20dp"
+        android:hint="输入手机号"
+        android:inputType="textPersonName"
+        android:paddingBottom="@dimen/distance_10dp"
+        android:paddingLeft="@dimen/distance_20dp"
+        android:paddingTop="@dimen/distance_10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@android:color/darker_gray"/>
+
+    <TextView
+        android:id="@+id/seperator"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/et_userphone"
+        android:background="@color/gray"/>
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/seperator"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/shape_et_username_password"
+        android:drawableLeft="@drawable/password"
+        android:drawablePadding="@dimen/distance_20dp"
+        android:hint="输入密码"
+        android:inputType="textPassword"
+        android:paddingBottom="@dimen/distance_10dp"
+        android:paddingLeft="@dimen/distance_20dp"
+        android:paddingTop="@dimen/distance_10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@android:color/darker_gray"/>
+
+    <TextView
+        android:id="@+id/tv_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_password"
+        android:layout_marginLeft="@dimen/distance_20dp"
+        android:layout_marginRight="@dimen/distance_20dp"
+        android:layout_marginTop="@dimen/distance_20dp"
+        android:background="@drawable/shape_tv_login"
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="click"
+        android:paddingBottom="@dimen/distance_15dp"
+        android:paddingTop="@dimen/distance_15dp"
+        android:text="登录"
+        android:textColor="@color/white"
+        android:textSize="@dimen/ts_20sp"
+        />
+
+    <TextView
+        android:id="@+id/tv_regist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_login"
+        android:layout_below="@id/tv_login"
+        android:layout_marginTop="@dimen/distance_10dp"
+        android:clickable="true"
+        android:onClick="click"
+        android:text="立即注册"
+        />
+
+    <TextView
+        android:id="@+id/tv_forgetPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tv_regist"
+        android:layout_alignRight="@+id/tv_login"
+        android:clickable="true"
+        android:onClick="click"
+        android:text="忘记密码？"
+        />
+
+    <LinearLayout
+        android:id="@+id/ll_fastLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_regist"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="@dimen/distance_100dp"
+            android:layout_height="1px"
+            android:background="@color/gray"
+            />
+
+        <TextView
+            android:id="@+id/tv_fastLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="第三方账号快捷登录"/>
+
+        <TextView
+            android:layout_width="@dimen/distance_100dp"
+            android:layout_height="1px"
+            android:background="@color/gray"
+            />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/img_qq_login"
+        android:layout_width="@dimen/distance_60dp"
+        android:layout_height="@dimen/distance_60dp"
+        android:layout_below="@id/ll_fastLogin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/distance_20dp"
+        android:clickable="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/qq_login"/>
+
+    <ImageView
+        android:id="@+id/img_wechat_login"
+        android:layout_width="@dimen/distance_60dp"
+        android:layout_height="@dimen/distance_60dp"
+        android:layout_alignTop="@id/img_qq_login"
+        android:layout_marginRight="@dimen/distance_40dp"
+        android:layout_toLeftOf="@id/img_qq_login"
+        android:clickable="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/wechat_login"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/img_sina_login"
+        android:layout_width="@dimen/distance_60dp"
+        android:layout_height="@dimen/distance_60dp"
+        android:layout_alignTop="@id/img_qq_login"
+        android:layout_marginLeft="@dimen/distance_40dp"
+        android:layout_toRightOf="@id/img_qq_login"
+        android:clickable="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/sina_login"
+        android:visibility="gone"/>
 
 </RelativeLayout>

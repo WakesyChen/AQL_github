@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">爱骑旅</string>
+
+    <string name="price" formatted="false">¥%s</string>
 </resources>
