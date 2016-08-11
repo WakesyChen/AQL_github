@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.WindowManager;
 
 import www.aql.com.R;
-import www.aql.com.activities.BaseActivity;
+import www.aql.com.base.BaseActivity;
 import www.aql.com.activities.main.MainActivity;
 import www.aql.com.utils.ActivitySkipHelper;
 import www.aql.com.utils.SPConfig;

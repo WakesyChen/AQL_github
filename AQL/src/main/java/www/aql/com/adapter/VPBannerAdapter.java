@@ -6,9 +6,9 @@ import android.widget.ImageView;
 
 import java.util.List;
 
+import www.aql.com.base.MyBasePagerAdapter;
 import www.aql.com.entity.response.Banner;
 import www.aql.com.urls.MyUrls;
-import www.aql.com.utils.MyUtils;
 
 /**
  * Created by Jason on 2016/7/17.
@@ -31,7 +31,7 @@ public class VPBannerAdapter extends MyBasePagerAdapter {
         Banner banner = (Banner) list.get(position);
         String imgUrl = MyUrls.service_Url + banner.image;
         loader.displayImage(imgUrl, imageView, options);
-        MyUtils.showLog("图片url:" + imgUrl);
+        //        MyUtils.showLog("图片url:" + imgUrl);
         container.addView(imageView);
         return imageView;
     }

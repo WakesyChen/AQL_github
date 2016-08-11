@@ -41,6 +41,10 @@ public class MainPresenter implements MainContact.IMainPresenter {
             @Override
             protected void onSuccess(BannerResponse response) {
                 Log.i("jason", "获取首页banner图：" + response);
+                if (response == null) {
+                    view.netException();
+                    return;
+                }
                 if (response.errcode == 0 && response.errmsg.equals("ok")) {
                     view.successRefreshLoadBanner(response.data);
                 } else {
@@ -74,6 +78,10 @@ public class MainPresenter implements MainContact.IMainPresenter {
             @Override
             protected void onSuccess(ColumnInfoResponse response) {
                 Log.i("jason", "获取首页分类模块信息：" + response);
+                if (response == null) {
+                    view.netException();
+                    return;
+                }
                 if (response.errcode == BaseResponse.SUCCESS_OK) {
                     view.successRefreshLoadColumnInfo(response.data);
                 } else {
@@ -109,6 +117,10 @@ public class MainPresenter implements MainContact.IMainPresenter {
             @Override
             protected void onSuccess(RouteResponse response) {
                 Log.i("jason", "获取首页路线列表信息：" + response);
+                if (response == null) {
+                    view.netException();
+                    return;
+                }
                 if (response.errcode == BaseResponse.SUCCESS_OK) {
                     view.successRefreshLoadRoute(response.data);
                 } else {
@@ -139,6 +151,10 @@ public class MainPresenter implements MainContact.IMainPresenter {
             @Override
             protected void onSuccess(BannerResponse response) {
                 Log.i("jason", "获取首页banner图：" + response);
+                if (response == null) {
+                    view.netException();
+                    return;
+                }
                 if (response.errcode == 0 && response.errmsg.equals("ok")) {
                     view.successFirstLoadBanner(response.data);
                 } else {
@@ -169,6 +185,10 @@ public class MainPresenter implements MainContact.IMainPresenter {
             @Override
             protected void onSuccess(ColumnInfoResponse response) {
                 Log.i("jason", "获取首页分类模块信息：" + response);
+                if (response == null) {
+                    view.netException();
+                    return;
+                }
                 if (response.errcode == BaseResponse.SUCCESS_OK) {
                     view.successFirstLoadColumnInfo(response.data);
                 } else {
@@ -204,6 +224,10 @@ public class MainPresenter implements MainContact.IMainPresenter {
             @Override
             protected void onSuccess(RouteResponse response) {
                 Log.i("jason", "获取首页路线列表信息：" + response);
+                if (response == null) {
+                    view.netException();
+                    return;
+                }
                 if (response.errcode == BaseResponse.SUCCESS_OK) {
                     view.successFirstLoadRoute(response.data);
                 } else {
@@ -239,6 +263,10 @@ public class MainPresenter implements MainContact.IMainPresenter {
             @Override
             protected void onSuccess(RouteResponse response) {
                 Log.i("jason", "获取首页路线列表信息：" + response);
+                if (response == null) {
+                    view.netException();
+                    return;
+                }
                 if (response.errcode == BaseResponse.SUCCESS_OK) {
                     view.successLoadMore(response.data);
                 } else {

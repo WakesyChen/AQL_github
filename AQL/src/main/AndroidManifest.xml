@@ -1,60 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="www.aql.com" >
+          package="www.aql.com">
 
     <uses-sdk
         android:maxSdkVersion="23"
-        android:minSdkVersion="17" />
+        android:minSdkVersion="17"/>
 
-    <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
-    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
     <!-- 支付宝需要的权限 -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <application
-        android:name=".applicaton.BaseApplication"
+        android:name=".applicaton.MyApplication"
         android:allowBackup="true"
         android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppBaseTheme" >
+        android:theme="@style/AppBaseTheme">
         <activity
             android:name=".activities.main.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activities.splash.SplashActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activities.login.LoginActivity" >
+        <activity android:name=".activities.login.LoginActivity">
         </activity>
-        <activity android:name=".activities.internation.InternationalActivity" >
+        <activity android:name=".activities.internation.InternationalActivity">
         </activity>
-        <activity android:name=".activities.innercountry.InnerCountryActivity" >
+        <activity android:name=".activities.innercountry.InnerCountryActivity">
         </activity>
-        <activity android:name=".activities.around.AroundActivity" >
+        <activity android:name=".activities.around.AroundActivity">
         </activity>
-        <activity android:name=".activities.more.MoreActivity" >
+        <activity android:name=".activities.more.MoreActivity">
         </activity>
-        <activity android:name=".activities.routedetail.RouteDetailActivity" >
+        <activity android:name=".activities.routedetail.RouteDetailActivity">
         </activity>
-        <activity android:name=".activities.selectcity.SelectCityActivity" >
+        <activity android:name=".activities.selectcity.SelectCityActivity">
         </activity>
-        <activity android:name=".activities.UserCenterActivity.UserCenterActivity" >
+        <activity android:name=".activities.UserCenterActivity.UserCenterActivity">
+        </activity>
+        <activity android:name=".activities.visa.VisaActivity">
+        </activity>
+        <activity android:name=".activities.reserve.ReserveActivity">
+        </activity>
+        <activity android:name=".activities.routespecialmore.RouteSpecialMoreActivity">
+        </activity>
+        <activity android:name=".activities.schedulamore.SchedulaMoreActivity">
+        </activity>
+        <activity android:name=".activities.serviceoptionmore.ServiceOptionMoreActivity">
+        </activity>
+        <activity android:name=".activities.customerevaluationmore.CustomerEvaluationMoreActivity">
+        </activity>
+        <activity android:name=".activities.shoppingcart.ShoppingcartActivity">
+        </activity>
+        <activity android:name=".activities.buynow.BuyNowActivity">
+        </activity>
+        <activity android:name=".activities.PayResultActivity">
+        </activity>
+        <activity android:name=".activities.regist.RegistActivity">
+        </activity>
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <intent-filter>
+                <data android:scheme="tencent100371282"/>
+
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+
+            <!-- 调用新浪原生SDK，需要注册的回调activity -->
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <!-- 微信分享回调 -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity
+            android:name=".activities.showshare.ShareDialogActivity"
+            android:theme="@style/ApparentActivity"/>
+        <activity android:name=".activities.applyforcompanyuser.ApplyForCompanyUserActivity">
         </activity>
     </application>
 

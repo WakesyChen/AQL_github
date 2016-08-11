@@ -31,10 +31,11 @@ public class SplashPresenter implements SplashContact.ISplashPresenter {
                     @Override
                     protected void onSuccess(ConnectionResponse response) {
                         Log.i("jason", "获取的token：" + response + "");
-                        if (response != null) {
-                            RequestParamsHelper.response = response;
+                        if (response == null) {
+                            view.netException();
+                            return;
                         }
-                        //                        MyUtils.showLog("RequestParamsHelper.response：" + response);
+                        RequestParamsHelper.response = response;
                         view.successLoadToken();
                     }
 

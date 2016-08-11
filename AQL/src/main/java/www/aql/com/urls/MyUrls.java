@@ -76,4 +76,20 @@ public interface MyUrls {
      * 获取市下面的区（GET）
      */
     public String getDistrictsByCity = service_Url + "/API/GetDistricts";
+    /**
+     * 获取购物车（GET）
+     */
+    public String getShoppingcart = service_Url + "/API/GetShoppingCarts";
+    /**
+     * 新增订单
+     */
+    public String addOrder = service_Url + "/API/AddOrder";
+    /**
+     * 更改订单状态
+     */
+    public String updateOrder = service_Url + "/API/UpdateOrderState";
+    /**
+     * 申请企业用户
+     */
+    public String applyForCompanyUser = service_Url + "/API/AddEnterpriseUser";
 }

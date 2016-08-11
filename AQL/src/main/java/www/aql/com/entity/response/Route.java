@@ -23,33 +23,15 @@ public class Route implements Parcelable {
     public String routetime;
     public long hot;
     public String createtime;
+    public String prepaidmoney;
+    public int paytype;
     public long reviewnum;
     public long liknum;
     public long buynum;
     public long joinnum;
     public List<Issue> issues;
 
-    @Override
-    public String toString() {
-        return "Route{" +
-                "columnid=" + columnid +
-                ", routeid='" + routeid + '\'' +
-                ", routename='" + routename + '\'' +
-                ", routeimage='" + routeimage + '\'' +
-                ", routearea=" + routearea +
-                ", routearea_en=" + routearea_en +
-                ", marketprice=" + marketprice +
-                ", currentprice=" + currentprice +
-                ", routetime='" + routetime + '\'' +
-                ", hot=" + hot +
-                ", createtime='" + createtime + '\'' +
-                ", reviewnum=" + reviewnum +
-                ", liknum=" + liknum +
-                ", buynum=" + buynum +
-                ", joinnum=" + joinnum +
-                ", issues=" + issues +
-                '}';
-    }
+    public TreasureInfo gettreasureInfo;
 
     @Override
     public int describeContents() {
@@ -70,11 +52,14 @@ public class Route implements Parcelable {
         dest.writeString(this.routetime);
         dest.writeLong(this.hot);
         dest.writeString(this.createtime);
+        dest.writeString(this.prepaidmoney);
+        dest.writeInt(this.paytype);
         dest.writeLong(this.reviewnum);
         dest.writeLong(this.liknum);
         dest.writeLong(this.buynum);
         dest.writeLong(this.joinnum);
         dest.writeTypedList(this.issues);
+        dest.writeParcelable(this.gettreasureInfo, flags);
     }
 
     public Route() {
@@ -93,11 +78,14 @@ public class Route implements Parcelable {
         this.routetime = in.readString();
         this.hot = in.readLong();
         this.createtime = in.readString();
+        this.prepaidmoney = in.readString();
+        this.paytype = in.readInt();
         this.reviewnum = in.readLong();
         this.liknum = in.readLong();
         this.buynum = in.readLong();
         this.joinnum = in.readLong();
         this.issues = in.createTypedArrayList(Issue.CREATOR);
+        this.gettreasureInfo = in.readParcelable(TreasureInfo.class.getClassLoader());
     }
 
     public static final Parcelable.Creator<Route> CREATOR = new Parcelable.Creator<Route>() {
@@ -111,4 +99,30 @@ public class Route implements Parcelable {
             return new Route[size];
         }
     };
+
+    @Override
+    public String toString() {
+        return "Route{" +
+                "columnid=" + columnid +
+                ", routeid='" + routeid + '\'' +
+                ", routename='" + routename + '\'' +
+                ", routeimage='" + routeimage + '\'' +
+                ", routearea='" + routearea + '\'' +
+                ", routearea_en='" + routearea_en + '\'' +
+                ", urlinfo=" + urlinfo +
+                ", marketprice='" + marketprice + '\'' +
+                ", currentprice='" + currentprice + '\'' +
+                ", routetime='" + routetime + '\'' +
+                ", hot=" + hot +
+                ", createtime='" + createtime + '\'' +
+                ", prepaidmoney='" + prepaidmoney + '\'' +
+                ", paytype=" + paytype +
+                ", reviewnum=" + reviewnum +
+                ", liknum=" + liknum +
+                ", buynum=" + buynum +
+                ", joinnum=" + joinnum +
+                ", issues=" + issues +
+                ", gettreasureInfo=" + gettreasureInfo +
+                '}';
+    }
 }

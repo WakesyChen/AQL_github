@@ -8,7 +8,6 @@ import org.xutils.http.RequestParams;
 import www.aql.com.entity.response.ConnectionResponse;
 
 public class RequestParamsHelper {
-    public static String token = "";
     public static ConnectionResponse response;
 
     /**

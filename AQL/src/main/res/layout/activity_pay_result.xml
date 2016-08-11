@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="www.aql.com.activities.PayResultActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/distance_title"
+        android:background="@color/colorPrimary">
+
+        <include layout="@layout/imageview_back"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="支付结果"
+            android:textColor="@color/white"
+            android:textSize="@dimen/ts_20sp"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_states"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@+id/rl_title"
+        android:background="@color/global_color_white">
+
+        <TextView
+            android:id="@+id/tv_pay_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="支付成功"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@+id/rl_states"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/btn_order_detail"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:padding="10dp"
+            android:text="查看订单详情"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp"/>
+
+        <Button
+            android:id="@+id/btn_main_page"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_toRightOf="@+id/btn_order_detail"
+            android:padding="10dp"
+            android:text="返回首页"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

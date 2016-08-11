@@ -57,7 +57,7 @@
 
 
     <EditText
-        android:id="@+id/et_username"
+        android:id="@+id/et_userphone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ll_describe"
@@ -70,13 +70,14 @@
         android:paddingBottom="@dimen/distance_10dp"
         android:paddingLeft="@dimen/distance_20dp"
         android:paddingTop="@dimen/distance_10dp"
+        android:textColor="@color/black"
         android:textColorHint="@android:color/darker_gray"/>
 
     <TextView
         android:id="@+id/seperator"
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:layout_below="@id/et_username"
+        android:layout_below="@id/et_userphone"
         android:background="@color/gray"/>
 
     <EditText
@@ -93,6 +94,7 @@
         android:paddingBottom="@dimen/distance_10dp"
         android:paddingLeft="@dimen/distance_20dp"
         android:paddingTop="@dimen/distance_10dp"
+        android:textColor="@color/black"
         android:textColorHint="@android:color/darker_gray"/>
 
     <TextView
@@ -176,7 +178,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/distance_20dp"
         android:clickable="true"
-        android:onClick="click"
         android:scaleType="centerInside"
         android:src="@drawable/qq_login"/>
 
@@ -188,9 +189,9 @@
         android:layout_marginRight="@dimen/distance_40dp"
         android:layout_toLeftOf="@id/img_qq_login"
         android:clickable="true"
-        android:onClick="click"
         android:scaleType="centerInside"
-        android:src="@drawable/wechat_login"/>
+        android:src="@drawable/wechat_login"
+        android:visibility="gone"/>
 
     <ImageView
         android:id="@+id/img_sina_login"
@@ -200,8 +201,8 @@
         android:layout_marginLeft="@dimen/distance_40dp"
         android:layout_toRightOf="@id/img_qq_login"
         android:clickable="true"
-        android:onClick="click"
         android:scaleType="centerInside"
-        android:src="@drawable/sina_login"/>
+        android:src="@drawable/sina_login"
+        android:visibility="gone"/>
 
 </RelativeLayout>

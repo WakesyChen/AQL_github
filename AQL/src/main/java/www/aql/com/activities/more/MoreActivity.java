@@ -3,7 +3,7 @@ package www.aql.com.activities.more;
 import android.os.Bundle;
 
 import www.aql.com.R;
-import www.aql.com.activities.BaseActivity;
+import www.aql.com.base.BaseActivity;
 
 public class MoreActivity extends BaseActivity {
 

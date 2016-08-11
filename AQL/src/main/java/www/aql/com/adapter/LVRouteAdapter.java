@@ -11,8 +11,10 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import www.aql.com.R;
+import www.aql.com.base.MyBaseAdapter;
 import www.aql.com.entity.response.Route;
 import www.aql.com.urls.MyUrls;
+import www.aql.com.utils.MobileDisplayHelper;
 
 /**
  * Created by Jason on 2016/7/20.
@@ -40,6 +42,8 @@ public class LVRouteAdapter extends MyBaseAdapter<Route> {
         vh.tvPrice.setText(String.format(context.getString(R.string.price), route.currentprice));
         vh.tvCollectionCount.setText(route.liknum + "");
         vh.tvEvaluationCount.setText(route.joinnum + "");
+
+        MobileDisplayHelper.setRouteListHeight(context, vh.img);
 
         loader.displayImage(MyUrls.service_Url + route.routeimage, vh.img, options);
 

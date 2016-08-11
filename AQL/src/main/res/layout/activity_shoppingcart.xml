@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.shoppingcart.ShoppingcartActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/distance_title"
+        android:background="@color/colorPrimary">
+
+        <include layout="@layout/imageview_back"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="购物车"
+            android:textColor="@color/white"
+            android:textSize="@dimen/ts_20sp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_settlement"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true">
+
+        <CheckBox
+            android:id="@+id/cb_selectAll"
+            android:layout_width="@dimen/distance_20dp"
+            android:layout_height="@dimen/distance_20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/distance_10dp"
+            android:background="@drawable/select_all"
+            android:button="@null"
+            android:clickable="true"
+            />
+
+        <TextView
+            android:id="@+id/tv_selectAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/distance_10dp"
+            android:layout_marginStart="@dimen/distance_10dp"
+            android:layout_toRightOf="@+id/cb_selectAll"
+            android:text="全选"/>
+
+        <TextView
+            android:id="@+id/tv_totalprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/distance_100dp"
+            android:layout_toRightOf="@id/cb_selectAll"
+            android:text="总金额"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/tv_gotoPurchase"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:paddingBottom="@dimen/distance_10dp"
+            android:paddingEnd="@dimen/distance_30dp"
+            android:paddingStart="@dimen/distance_30dp"
+            android:paddingTop="@dimen/distance_10dp"
+            android:text="去结算"
+            android:textColor="@color/white"/>
+    </RelativeLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/rl_settlement"
+        android:layout_below="@id/rl_title">
+
+        <ListView
+            android:id="@+id/lv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</RelativeLayout>

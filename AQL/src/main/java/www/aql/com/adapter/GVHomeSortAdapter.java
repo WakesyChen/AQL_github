@@ -1,12 +1,15 @@
 package www.aql.com.adapter;
 
 import android.content.Context;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import java.util.List;
 
+import www.aql.com.base.MyBaseAdapter;
 import www.aql.com.entity.response.ColumnInfo;
 
 /**
@@ -29,8 +32,11 @@ public class GVHomeSortAdapter extends MyBaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ImageView imageView = new ImageView(context);
-        imageView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup
-                .LayoutParams.MATCH_PARENT));
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout
+                .LayoutParams.MATCH_PARENT);
+        params.gravity = Gravity.CENTER;
+        imageView.setLayoutParams(params);
         imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         imageView.setImageResource(imgs[position]);
 

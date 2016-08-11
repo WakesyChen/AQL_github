@@ -1,5 +1,6 @@
 package www.aql.com.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +19,12 @@ public class ActivitySkipHelper {
         from.startActivity(intent);
     }
 
+    public static <T> void skipToActivityForResult(Activity from, Class<T> to, int requestCode) {
+        Intent intent = new Intent();
+        intent.setClass(from, to);
+        from.startActivityForResult(intent, requestCode);
+    }
+
     /**
      * Activity带ArrayList<T>跳转
      *
@@ -31,5 +38,13 @@ public class ActivitySkipHelper {
         intent.setClass(from, class1);
         intent.putExtras(bundle);
         from.startActivity(intent);
+    }
+
+    public static <T> void skipToActivityForResultWithData(Activity from, Class<T> class1, Bundle bundle, int
+            requestCode) {
+        Intent intent = new Intent();
+        intent.setClass(from, class1);
+        intent.putExtras(bundle);
+        from.startActivityForResult(intent, requestCode);
     }
 }

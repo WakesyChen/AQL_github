@@ -9,6 +9,9 @@
     <color name="gray">@android:color/darker_gray</color>
     <color name="red">#FE0000</color>
 
+    <color name="global_bg_gray">#f4f4f4</color>
+    <color name="toolbar_font">#FEFEFE</color>
+
     <!-- 全局背景色 -->
     <color name="global_color_bg">#343843</color>
     <color name="global_color_gray_bg">#f4f4f4</color>

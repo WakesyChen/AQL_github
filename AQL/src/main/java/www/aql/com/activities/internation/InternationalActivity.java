@@ -20,16 +20,17 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import www.aql.com.R;
-import www.aql.com.activities.BaseActivity;
 import www.aql.com.activities.routedetail.RouteDetailActivity;
 import www.aql.com.adapter.LVRouteAdapter;
 import www.aql.com.adapter.VPBannerAdapter;
+import www.aql.com.base.BaseActivity;
 import www.aql.com.entity.response.Banner;
 import www.aql.com.entity.response.ColumnInfo;
 import www.aql.com.entity.response.Route;
 import www.aql.com.entity.response.request.ReqRoutes;
 import www.aql.com.utils.ActivitySkipHelper;
 import www.aql.com.utils.DisplayHelper;
+import www.aql.com.utils.MobileDisplayHelper;
 import www.aql.com.utils.MyUtils;
 import www.aql.com.utils.ScreenUtils;
 
@@ -89,6 +90,7 @@ public class InternationalActivity extends BaseActivity implements Internaltiona
     private void initHeader() {
         View header = LayoutInflater.from(this).inflate(R.layout.header_lv_international_innercountry, null);
         header_vp = (ViewPager) header.findViewById(R.id.vp);
+        MobileDisplayHelper.setBannerHeight(this, header_vp);
         header_rg_dots = (RadioGroup) header.findViewById(R.id.rg_dots);
         lv.addHeaderView(header);
     }
@@ -134,6 +136,7 @@ public class InternationalActivity extends BaseActivity implements Internaltiona
                 Route route = totallist_lv.get(position - headerViewsCount);
                 Bundle bundle = new Bundle();
                 bundle.putParcelable(Route.class.getName(), route);
+                Log.i("jason", "点击的route：" + route);
                 ActivitySkipHelper.skipToActivityWithData(InternationalActivity.this, RouteDetailActivity.class,
                         bundle);
             }
@@ -172,7 +175,7 @@ public class InternationalActivity extends BaseActivity implements Internaltiona
         if (list != null && list.size() > 0) {
             totallist_lv.addAll(list);
             lvRouteAdapter.notifyDataSetChanged();
-            lv.setSelection(currentRouteSize);
+            lv.setSelection(currentRouteSize + lv.getHeaderViewsCount());
         } else {
             MyUtils.showToast(this, "暂无更多数据");
         }
@@ -219,6 +222,7 @@ public class InternationalActivity extends BaseActivity implements Internaltiona
     @OnClick(R.id.img_user_center)
     public void onClick() {
         //进入到用户中心
+        MyUtils.showToast(InternationalActivity.this, "技术人员正在开发中");
     }
 
 

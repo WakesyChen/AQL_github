@@ -7,7 +7,10 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.xutils.common.Callback;
 import org.xutils.ex.HttpException;
 import org.xutils.http.RequestParams;
@@ -64,8 +67,104 @@ public class NetWorkUtils {
 
     //异步Get调用的方法
     public <T> void get(final RequestParams params, final NetRequestCallBack<T> callBack, final Class<T> clazz) {
-        networkCallbackbyGet(callBack, clazz, params);
+        x.http().get(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                Log.i("result", result);
+                if (callBack != null) {
+                    if (!TextUtils.isEmpty(result)) {
+                        JSONObject jsonObject = null;
+                        try {
+                            jsonObject = new JSONObject(result);
+                            if (jsonObject.optInt("errcode") != 0) {
+                                callBack.onSuccess(null);
+                            } else {
+                                try {
+                                    T t = new Gson().fromJson(result, clazz);
+                                    callBack.onSuccess(t);
+                                } catch (JsonSyntaxException e) {
+                                    e.printStackTrace();
+                                    Log.i("result", "gson解析异常:" + e.getMessage());
+                                }
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        callBack.onSuccess(null);
+                    }
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                failure(callBack, ex);
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+
+        });
     }
+
+    //异步Post调用的方法
+    public <T> void post(final String url, Object req, final NetRequestCallBack<T> callBack, final Class<T> clazz) {
+        RequestParams requestParams = getRequestParams(req, url);
+        x.http().post(requestParams, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                Log.i("result", "onSuccess" + result);
+                if (callBack != null) {
+                    if (!TextUtils.isEmpty(result)) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(result);
+                            if (jsonObject.optInt("errcode") != 0) {
+                                callBack.onSuccess(null);
+                            } else {
+                                T t = null;
+                                try {
+                                    t = new Gson().fromJson(result, clazz);
+                                    callBack.onSuccess(t);
+                                } catch (JsonSyntaxException e) {
+                                    e.printStackTrace();
+                                    Log.i("result", "gson解析错误：" + e.getMessage());
+                                }
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    } else {
+                        callBack.onSuccess(null);
+                    }
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                Log.i("result", "onError:" + ex.getMessage());
+                failure(callBack, ex);
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+    }
+
 
     //同步Get调用的方法
     public <T> T syncGet(RequestParams params, Class<T> clazz) {
@@ -82,13 +181,6 @@ public class NetWorkUtils {
             e.printStackTrace();
         }
         return null;
-    }
-
-
-    //异步Post调用的方法
-    public <T> void post(final String url, Object req, final NetRequestCallBack<T> callBack, final Class<T> clazz) {
-        RequestParams requestParams = getRequestParams(req, url);
-        networkCallbackbyPost(callBack, clazz, requestParams);
     }
 
 
@@ -110,75 +202,6 @@ public class NetWorkUtils {
         return null;
     }
 
-    //get的网络回调
-    public <T> void networkCallbackbyGet(final NetRequestCallBack<T> callBack, final Class<T> clazz, RequestParams
-            requestParams) {
-        x.http().get(requestParams, new Callback.CommonCallback<String>() {
-            @Override
-            public void onSuccess(String result) {
-                Log.i("result", result);
-                if (callBack != null) {
-                    if (!TextUtils.isEmpty(result)) {
-                        T t = new Gson().fromJson(result, clazz);
-                        callBack.onSuccess(t);
-                    } else {
-                        callBack.onSuccess(null);
-                    }
-                }
-            }
-
-            @Override
-            public void onError(Throwable ex, boolean isOnCallback) {
-                failure(callBack, ex);
-            }
-
-            @Override
-            public void onCancelled(CancelledException cex) {
-
-            }
-
-            @Override
-            public void onFinished() {
-
-            }
-
-        });
-    }
-
-    //post的请求方式
-    public <T> void networkCallbackbyPost(final NetRequestCallBack<T> callBack, final Class<T> clazz, RequestParams
-            requestParams) {
-        x.http().post(requestParams, new Callback.CommonCallback<String>() {
-            @Override
-            public void onSuccess(String result) {
-                Log.i("result", result);
-                if (callBack != null) {
-                    if (!TextUtils.isEmpty(result)) {
-                        T t = new Gson().fromJson(result, clazz);
-                        callBack.onSuccess(t);
-                    } else {
-                        callBack.onSuccess(null);
-                    }
-                }
-            }
-
-            @Override
-            public void onError(Throwable ex, boolean isOnCallback) {
-                failure(callBack, ex);
-            }
-
-            @Override
-            public void onCancelled(CancelledException cex) {
-
-            }
-
-            @Override
-            public void onFinished() {
-
-            }
-        });
-    }
-
     //对参数进行封装格式，为了方便以后的维护，在这里可以统一处理头部信息以及一些上传下载的配置
     private RequestParams getRequestParams(Object req, String url) {
         RequestParams requestParams = new RequestParams(url);
@@ -195,7 +218,7 @@ public class NetWorkUtils {
      * 失败处理
      */
     public void failure(NetRequestCallBack callBack, Throwable ex) {
-        String s = null;
+        String s = ex.getMessage();
         if (ex instanceof HttpException) { // 网络错误
             HttpException exception = (HttpException) ex;
             if (exception.getCode() == 900 || exception.getCode() == 901) {

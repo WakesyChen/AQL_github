@@ -37,6 +37,10 @@ public class InternaltionalPresenter implements InternaltionalContact.IInternalt
         NetWorkUtils.getInstance().get(param, new NetRequestCallBack<RouteResponse>() {
             @Override
             protected void onSuccess(RouteResponse response) {
+                if (response == null) {
+                    view.netException();
+                    return;
+                }
                 if (response.errcode == BaseResponse.SUCCESS_OK) {
                     view.successFirstLoadRoutes(response.data);
                 } else {
@@ -66,6 +70,10 @@ public class InternaltionalPresenter implements InternaltionalContact.IInternalt
         NetWorkUtils.getInstance().get(requestParams, new NetRequestCallBack<RouteResponse>() {
             @Override
             protected void onSuccess(RouteResponse response) {
+                if (response == null) {
+                    view.netException();
+                    return;
+                }
                 if (response.errcode == BaseResponse.SUCCESS_OK) {
                     view.successRefreshLoadRoutes(response.data);
                 } else {
@@ -96,6 +104,10 @@ public class InternaltionalPresenter implements InternaltionalContact.IInternalt
             @Override
             protected void onSuccess(BannerResponse response) {
                 Log.i("jason", "获取首页banner图：" + response);
+                if (response == null) {
+                    view.netException();
+                    return;
+                }
                 if (response.errcode == 0 && response.errmsg.equals("ok")) {
                     view.successFirstLoadBanners(response.data);
                 } else {
@@ -126,6 +138,10 @@ public class InternaltionalPresenter implements InternaltionalContact.IInternalt
             @Override
             protected void onSuccess(BannerResponse response) {
                 Log.i("jason", "获取首页banner图：" + response);
+                if (response == null) {
+                    view.netException();
+                    return;
+                }
                 if (response.errcode == 0 && response.errmsg.equals("ok")) {
                     view.successRefreshLoadBanners(response.data);
                 } else {
@@ -160,6 +176,10 @@ public class InternaltionalPresenter implements InternaltionalContact.IInternalt
         NetWorkUtils.getInstance().get(requestParams, new NetRequestCallBack<RouteResponse>() {
             @Override
             protected void onSuccess(RouteResponse response) {
+                if (response == null) {
+                    view.netException();
+                    return;
+                }
                 if (response.errcode == BaseResponse.SUCCESS_OK) {
                     view.successLoadMore(response.data);
                 } else {
