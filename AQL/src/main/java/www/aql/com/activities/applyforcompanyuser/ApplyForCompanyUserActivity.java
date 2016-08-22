@@ -4,7 +4,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -31,6 +30,8 @@ import www.aql.com.R;
 import www.aql.com.base.BaseActivity;
 import www.aql.com.entity.response.ApplyForCompanyUser;
 import www.aql.com.entity.response.UploadFile;
+import www.aql.com.entity.response.request.ReqApplyForCompanyUser;
+import www.aql.com.utils.BitMapUtils;
 import www.aql.com.utils.MyUtils;
 
 public class ApplyForCompanyUserActivity extends BaseActivity implements ApplyForCompanyUserContact
@@ -216,7 +217,9 @@ public class ApplyForCompanyUserActivity extends BaseActivity implements ApplyFo
 
     private void refreshImg(String imgPath) {
         if (!TextUtils.isEmpty(imgPath)) {
-            Bitmap addbmp = BitmapFactory.decodeFile(imgPath);
+            //            Bitmap addbmp = BitmapFactory.decodeFile(imgPath);
+            //二次采样
+            Bitmap addbmp = BitMapUtils.getBitmap(imgPath, 100, 100);
             HashMap<String, Object> map = new HashMap<String, Object>();
             map.put(ITEMIMAGE, addbmp);
             map.put(IMAGEPATH, imgPath);
@@ -398,16 +401,18 @@ public class ApplyForCompanyUserActivity extends BaseActivity implements ApplyFo
         imageUrl = uploadFile.filepath;
 
         //开始申请
-//        presenter.requestToBeCompanyUser();
+        ReqApplyForCompanyUser req = new ReqApplyForCompanyUser();
+        //        req.address
+        presenter.requestToBeCompanyUser(req);
     }
 
     @Override
     public void loadFail(String errMsg) {
-
+        MyUtils.showToast(this, "申请失败");
     }
 
     @Override
     public void netException() {
-
+        MyUtils.showToast(this, "网络异常");
     }
 }
