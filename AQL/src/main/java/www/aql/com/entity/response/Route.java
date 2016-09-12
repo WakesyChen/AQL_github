@@ -88,7 +88,7 @@ public class Route implements Parcelable {
         this.gettreasureInfo = in.readParcelable(TreasureInfo.class.getClassLoader());
     }
 
-    public static final Parcelable.Creator<Route> CREATOR = new Parcelable.Creator<Route>() {
+    public static final Creator<Route> CREATOR = new Creator<Route>() {
         @Override
         public Route createFromParcel(Parcel source) {
             return new Route(source);

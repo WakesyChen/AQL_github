@@ -10,12 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,11 +21,12 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import www.aql.com.R;
-import www.aql.com.activities.UserCenterActivity.UserCenterActivity;
+import www.aql.com.activities.around.AroundActivity;
 import www.aql.com.activities.innercountry.InnerCountryActivity;
 import www.aql.com.activities.internation.InternationalActivity;
 import www.aql.com.activities.login.LoginActivity;
 import www.aql.com.activities.routedetail.RouteDetailActivity;
+import www.aql.com.activities.usercenter.UserCenterActivity;
 import www.aql.com.adapter.LVRouteAdapter;
 import www.aql.com.adapter.VPBannerAdapter;
 import www.aql.com.applicaton.MyApplication;
@@ -40,16 +39,14 @@ import www.aql.com.enums.RequestCode;
 import www.aql.com.enums.ResultCode;
 import www.aql.com.enums.Values;
 import www.aql.com.utils.ActivitySkipHelper;
-import www.aql.com.utils.DisplayHelper;
 import www.aql.com.utils.MobileDisplayHelper;
 import www.aql.com.utils.MyUtils;
+import www.aql.com.utils.RadioButtonHelper;
 import www.aql.com.utils.SPConfig;
 import www.aql.com.utils.SPUtils;
 import www.aql.com.utils.ScreenUtils;
 
 public class MainActivity extends BaseActivity implements MainContact.IMainView, View.OnClickListener {
-
-
     @BindView(R.id.lv1)
     ListView lv;
     @BindView(R.id.swipe)
@@ -59,18 +56,13 @@ public class MainActivity extends BaseActivity implements MainContact.IMainView,
     private MainPresenter presenter;
     List<Banner> totallist_vp;
     private ViewPager header_vp;
-    private GridView header_gv;
     private ImageView header_img_search;
     private RadioGroup header_rg_dots;
     private ImageView header_img_userCenter;
     private List<Route> totallist_lv;
     private LVRouteAdapter lvHomeAdapter;
-    //    private GVHomeSortAdapter gvHomeSortAdapter;
     private VPBannerAdapter vpHomeHeaderAdapter;
-    //    private int[] img_columnInfo;
 
-
-    private int lastVisibleItemPosition;
     private boolean scrollFlag;
     private int currentRouteSize;
     private ImageView img_international;
@@ -90,10 +82,6 @@ public class MainActivity extends BaseActivity implements MainContact.IMainView,
         initHeader();
 
         initSwipe();
-
-        //        img_columnInfo = new int[]{R.drawable.international, R.drawable.innercountry, R.drawable
-        // .outercountry, R
-        //                .drawable.more};
 
         //请求banner图
         presenter.firstLoadBanners();
@@ -120,16 +108,10 @@ public class MainActivity extends BaseActivity implements MainContact.IMainView,
     private void initHeader() {
         View header = LayoutInflater.from(this).inflate(R.layout.header_lv_home, null);
         header_vp = (ViewPager) header.findViewById(R.id.vp);
-        //        ViewGroup.LayoutParams params = header_vp.getLayoutParams();
-        //        int width = MobileDisplayHelper.getMobileWidthHeight(this).x;
-        //        params.width = width;
-        //        params.height = 593 * width / 640;
-        //        header_vp.setLayoutParams(params);
         MobileDisplayHelper.setBannerHeight(this, header_vp);
         header_rg_dots = (RadioGroup) header.findViewById(R.id.rg_dots);
         header_img_userCenter = (ImageView) header.findViewById(R.id.img_user_center);
         header_img_search = (ImageView) header.findViewById(R.id.img_search);
-        header_gv = (GridView) header.findViewById(R.id.gv);
         img_international = (ImageView) header.findViewById(R.id.img_international);
         img_innerCountry = (ImageView) header.findViewById(R.id.img_innerCountry);
         img_surround = (ImageView) header.findViewById(R.id.img_surrround);
@@ -139,7 +121,7 @@ public class MainActivity extends BaseActivity implements MainContact.IMainView,
         header_img_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MyUtils.showToast(MainActivity.this, "技术人员正在开发中");
+                MyUtils.showToast(MainActivity.this, "技术人员正在调试中");
                 //进入选择城市
                 //                ActivitySkipHelper.skipToActivity(MainActivity.this, SelectCityActivity.class);
             }
@@ -147,7 +129,6 @@ public class MainActivity extends BaseActivity implements MainContact.IMainView,
         header_img_userCenter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //                MyUtils.showToast(MainActivity.this, "技术人员正在开发中");
                 //进入用户中心
                 String userid = SPUtils.getString(MainActivity.this, SPConfig.USER_ID, "");
                 if (userid.equals("")) {
@@ -194,16 +175,7 @@ public class MainActivity extends BaseActivity implements MainContact.IMainView,
     //动态绘制RadioButton
     private void drawRadioButton() {
         for (int i = 0; i < totallist_vp.size(); i++) {
-            RadioButton rb = new RadioButton(this);
-            rb.setButtonDrawable(android.R.color.transparent);
-            int width_height = DisplayHelper.dp2px(this, 5);
-            int margin = DisplayHelper.dp2px(this, 5);
-            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(width_height, width_height);
-            params.setMargins(margin, margin, margin, margin);
-            rb.setLayoutParams(params);
-            rb.setBackgroundResource(R.drawable.selector_dot);
-
-            header_rg_dots.addView(rb);
+            header_rg_dots.addView(RadioButtonHelper.drawRadioButton(this));
         }
         ((RadioButton) header_rg_dots.getChildAt(0)).setChecked(true);
     }
@@ -240,7 +212,6 @@ public class MainActivity extends BaseActivity implements MainContact.IMainView,
         }
         swipe.setRefreshing(false);
         lvHomeAdapter.notifyDataSetChanged();
-        //        gvHomeSortAdapter.notifyDataSetChanged();
         vpHomeHeaderAdapter.notifyDataSetChanged();
     }
 
@@ -310,16 +281,6 @@ public class MainActivity extends BaseActivity implements MainContact.IMainView,
     }
 
     private void initGridView() {
-
-        //        Glide.with(this).load(MyUrls.service_Url + totallist_gv.get(0).image).error(R.drawable.logo).into
-        //                (img_international);
-        //        Glide.with(this).load(MyUrls.service_Url + totallist_gv.get(1).image).error(R.drawable.logo).into
-        //                (img_innerCountry);
-        //        Glide.with(this).load(MyUrls.service_Url + totallist_gv.get(2).image).error(R.drawable.logo).into
-        //                (img_surround);
-        //        Glide.with(this).load(MyUrls.service_Url + totallist_gv.get(3).image).error(R.drawable.logo).into
-        //                (img_more);
-
         img_international.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -339,67 +300,27 @@ public class MainActivity extends BaseActivity implements MainContact.IMainView,
         img_surround.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MyUtils.showToast(MainActivity.this, "技术人员正在开发中");
-                //                Bundle bundle = new Bundle();
-                //                bundle.putParcelable(ColumnInfo.class.getName(), totallist_gv.get(2));
-                //                ActivitySkipHelper.skipToActivityWithData(MainActivity.this, AroundActivity.class,
-                // bundle);
+                //                MyUtils.showToast(MainActivity.this, "技术人员正在开发中");
+                Bundle bundle = new Bundle();
+                bundle.putParcelable(ColumnInfo.class.getName(), totallist_gv.get(2));
+                ActivitySkipHelper.skipToActivityWithData(MainActivity.this, AroundActivity.class,
+                        bundle);
             }
         });
         img_more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MyUtils.showToast(MainActivity.this, "技术人员正在开发中");
-                //                Bundle bundle = new Bundle();
-                //                bundle.putParcelable(ColumnInfo.class.getName(), totallist_gv.get(3));
+                Bundle bundle = new Bundle();
+                bundle.putParcelable(ColumnInfo.class.getName(), totallist_gv.get(3));
                 //                ActivitySkipHelper.skipToActivityWithData(MainActivity.this, MoreActivity.class,
                 // bundle);
             }
         });
-
-        //        gvHomeSortAdapter = new GVHomeSortAdapter(this, totallist_gv, img_columnInfo);
-        //        header_gv.setAdapter(gvHomeSortAdapter);
-        //        header_gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-        //            @Override
-        //            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        //                Bundle bundle = new Bundle();
-        //                bundle.putParcelable(ColumnInfo.class.getName(), totallist_gv.get(i));
-        //                Intent intent = new Intent();
-        //                intent.putExtras(bundle);
-        //                int columnid = (int) totallist_gv.get(i).columnid;
-        //                switch (columnid) {
-        //                    case ColumnID.INTERNATIONAL://国际
-        //                        intent.setClass(MainActivity.this, InternationalActivity.class);
-        //                        break;
-        //                    case ColumnID.INNTER_COUNTRY://国内
-        //                        intent.setClass(MainActivity.this, InnerCountryActivity.class);
-        //                        break;
-        //                    case ColumnID.AROUND://周边
-        //                        intent.setClass(MainActivity.this, AroundActivity.class);
-        //                        break;
-        //                    case ColumnID.MORE://更多
-        //                        intent.setClass(MainActivity.this, MoreActivity.class);
-        //                        break;
-        //                    default:
-        //                        break;
-        //                }
-        //                startActivity(intent);
-        //            }
-        //        });
     }
 
     @Override
     public void onClick(View view) {
-
-    }
-
-    @Override
-    public void loadFail(String errMsg) {
-
-    }
-
-    @Override
-    public void netException() {
 
     }
 
@@ -413,7 +334,6 @@ public class MainActivity extends BaseActivity implements MainContact.IMainView,
                              int visibleItemCount, int totalItemCount) {
             if (scrollFlag && ScreenUtils.getScreenViewBottomHeight(lv) >= ScreenUtils
                     .getScreenHeight(MainActivity.this) / 20) {
-                lastVisibleItemPosition = firstVisibleItem;
             }
 
             this.firstVisibleItem = firstVisibleItem;

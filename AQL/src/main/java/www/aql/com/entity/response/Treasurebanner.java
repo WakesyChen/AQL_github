@@ -22,7 +22,7 @@ public class Treasurebanner implements Parcelable {
     protected Treasurebanner(Parcel in) {
     }
 
-    public static final Parcelable.Creator<Treasurebanner> CREATOR = new Parcelable.Creator<Treasurebanner>() {
+    public static final Creator<Treasurebanner> CREATOR = new Creator<Treasurebanner>() {
         @Override
         public Treasurebanner createFromParcel(Parcel source) {
             return new Treasurebanner(source);

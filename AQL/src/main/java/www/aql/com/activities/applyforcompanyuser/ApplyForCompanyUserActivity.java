@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -31,8 +32,9 @@ import www.aql.com.base.BaseActivity;
 import www.aql.com.entity.response.ApplyForCompanyUser;
 import www.aql.com.entity.response.UploadFile;
 import www.aql.com.entity.response.request.ReqApplyForCompanyUser;
-import www.aql.com.utils.BitMapUtils;
 import www.aql.com.utils.MyUtils;
+import www.aql.com.utils.SPConfig;
+import www.aql.com.utils.SPUtils;
 
 public class ApplyForCompanyUserActivity extends BaseActivity implements ApplyForCompanyUserContact
         .IApplyForCompanyUserView {
@@ -84,6 +86,13 @@ public class ApplyForCompanyUserActivity extends BaseActivity implements ApplyFo
     private int times = 0;
 
     private ApplyForCompanyUserPresenter presenter;
+    private String name;
+    private String tel;
+    private String idcard;
+    private String type;
+    private String alipayNum;
+    private String shopAddress;
+    private String idImageUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -213,13 +222,11 @@ public class ApplyForCompanyUserActivity extends BaseActivity implements ApplyFo
 
     private final String ITEMIMAGE = "itemImage";
     private final String IMAGEPATH = "imagePath";
-    private final String IMAGEURL = "imageUrl";
+    private final String IMAGEURL = "idImageUrl";
 
     private void refreshImg(String imgPath) {
         if (!TextUtils.isEmpty(imgPath)) {
-            //            Bitmap addbmp = BitmapFactory.decodeFile(imgPath);
-            //二次采样
-            Bitmap addbmp = BitMapUtils.getBitmap(imgPath, 100, 100);
+            Bitmap addbmp = BitmapFactory.decodeFile(imgPath);
             HashMap<String, Object> map = new HashMap<String, Object>();
             map.put(ITEMIMAGE, addbmp);
             map.put(IMAGEPATH, imgPath);
@@ -270,32 +277,32 @@ public class ApplyForCompanyUserActivity extends BaseActivity implements ApplyFo
                 addImageDialog();
                 break;
             case R.id.tv_ensure_apply:
-                String name = etInputName.getText() + "";
+                name = etInputName.getText() + "";
                 if (TextUtils.isEmpty(name)) {
                     MyUtils.showToast(this, "请先填写名字");
                     return;
                 }
-                String tel = etInputTel.getText() + "";
+                tel = etInputTel.getText() + "";
                 if (TextUtils.isEmpty(tel)) {
                     MyUtils.showToast(this, "请先填写联系电话");
                     return;
                 }
-                String idcard = etInputIdentitfy.getText() + "";
+                idcard = etInputIdentitfy.getText() + "";
                 if (TextUtils.isEmpty(idcard)) {
                     MyUtils.showToast(this, "请先填写身份证号");
                     return;
                 }
-                String type = etBusinessType.getText() + "";
+                type = etBusinessType.getText() + "";
                 if (TextUtils.isEmpty(type)) {
                     MyUtils.showToast(this, "请先填写经营类型");
                     return;
                 }
-                String alipayNum = etAlipayNumber.getText() + "";
+                alipayNum = etAlipayNumber.getText() + "";
                 if (TextUtils.isEmpty(alipayNum)) {
                     MyUtils.showToast(this, "请先填写支付宝账号");
                     return;
                 }
-                String shopAddress = etAddress.getText() + "";
+                shopAddress = etAddress.getText() + "";
                 if (TextUtils.isEmpty(shopAddress)) {
                     MyUtils.showToast(this, "请先填写店铺地址");
                     return;
@@ -308,6 +315,7 @@ public class ApplyForCompanyUserActivity extends BaseActivity implements ApplyFo
                     MyUtils.showToast(this, "请先上传营业执照");
                     return;
                 }
+                dialog.show();
                 //请求服务器
                 presenter.uploadIdentifyImg(new File((String) totallist_identify.get(times).get(IMAGEPATH)));
                 break;
@@ -387,8 +395,8 @@ public class ApplyForCompanyUserActivity extends BaseActivity implements ApplyFo
     @Override
     public void successUploadIdentifyImg(UploadFile uploadFile) {
         if (times < totallist_identify.size() - 1) {
-            String imageUrl = (String) totallist_identify.get(times).get(IMAGEURL);
-            imageUrl = uploadFile.filepath;
+            idImageUrl = (String) totallist_identify.get(times).get(IMAGEURL);
+            idImageUrl = uploadFile.filepath;
             presenter.uploadIdentifyImg(new File((String) totallist_identify.get(++times).get(IMAGEPATH)));
         } else {
             presenter.uploadLicenseImg(new File((String) totallist_license.get(0).get(IMAGEPATH)));
@@ -397,22 +405,35 @@ public class ApplyForCompanyUserActivity extends BaseActivity implements ApplyFo
 
     @Override
     public void successUploadLicenseImg(UploadFile uploadFile) {
-        String imageUrl = (String) totallist_license.get(times).get(IMAGEURL);
-        imageUrl = uploadFile.filepath;
+        String manageImg = (String) totallist_license.get(0).get(IMAGEURL);
+        manageImg = uploadFile.filepath;
 
-        //开始申请
+        //图片上传完毕，开始申请
         ReqApplyForCompanyUser req = new ReqApplyForCompanyUser();
-        //        req.address
+        req.address = shopAddress;
+        req.alipayid = alipayNum;
+        req.enterpriseusername = name;
+        req.identitycard = idcard;
+        req.identitycardimage = (String) totallist_identify.get(0).get(IMAGEURL) + ";" + (String) totallist_identify
+                .get(1).get(IMAGEURL);
+        req.manageimage = manageImg;
+        req.managetype = type;
+        req.phone = tel;
+        req.userid = SPUtils.getString(this, SPConfig.USER_ID, "");
         presenter.requestToBeCompanyUser(req);
     }
 
     @Override
     public void loadFail(String errMsg) {
-        MyUtils.showToast(this, "申请失败");
+        super.loadFail(errMsg);
+        if (dialog != null)
+            dialog.dismiss();
     }
 
     @Override
     public void netException() {
-        MyUtils.showToast(this, "网络异常");
+        super.netException();
+        if (dialog != null)
+            dialog.dismiss();
     }
 }

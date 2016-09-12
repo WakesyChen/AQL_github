@@ -6,7 +6,7 @@ import www.aql.com.entity.response.LoginResponse;
 import www.aql.com.enums.Keys;
 import www.aql.com.urls.MyUrls;
 import www.aql.com.utils.NetRequestCallBack;
-import www.aql.com.utils.NetWorkUtils;
+import www.aql.com.utils.XUtilsHelper;
 import www.aql.com.utils.RequestParamsHelper;
 
 /**
@@ -24,7 +24,7 @@ public class LoginPresenter implements LoginContact.ILoginPresenter {
         RequestParams params = RequestParamsHelper.getBaseRequestParam(MyUrls.loginCheck);
         params.addBodyParameter(Keys.USER_PHONE, userphone);
         params.addBodyParameter(Keys.PASSWORD, password);
-        NetWorkUtils.getInstance().get(params, new NetRequestCallBack<LoginResponse>() {
+        XUtilsHelper.getInstance().get(params, new NetRequestCallBack<LoginResponse>() {
             @Override
             protected void onSuccess(LoginResponse response) {
                 if (response == null) {

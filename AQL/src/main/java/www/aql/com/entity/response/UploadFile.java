@@ -53,7 +53,7 @@ public class UploadFile implements Parcelable {
         this.filesize = in.readString();
     }
 
-    public static final Parcelable.Creator<UploadFile> CREATOR = new Parcelable.Creator<UploadFile>() {
+    public static final Creator<UploadFile> CREATOR = new Creator<UploadFile>() {
         @Override
         public UploadFile createFromParcel(Parcel source) {
             return new UploadFile(source);

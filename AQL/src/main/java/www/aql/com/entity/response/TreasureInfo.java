@@ -80,7 +80,7 @@ public class TreasureInfo implements Parcelable {
         this.wininfo = in.createTypedArrayList(Wininfo.CREATOR);
     }
 
-    public static final Parcelable.Creator<TreasureInfo> CREATOR = new Parcelable.Creator<TreasureInfo>() {
+    public static final Creator<TreasureInfo> CREATOR = new Creator<TreasureInfo>() {
         @Override
         public TreasureInfo createFromParcel(Parcel source) {
             return new TreasureInfo(source);

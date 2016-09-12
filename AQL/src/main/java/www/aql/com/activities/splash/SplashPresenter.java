@@ -8,7 +8,7 @@ import www.aql.com.entity.response.ConnectionResponse;
 import www.aql.com.enums.Values;
 import www.aql.com.urls.MyUrls;
 import www.aql.com.utils.NetRequestCallBack;
-import www.aql.com.utils.NetWorkUtils;
+import www.aql.com.utils.XUtilsHelper;
 import www.aql.com.utils.RequestParamsHelper;
 
 /**
@@ -26,7 +26,7 @@ public class SplashPresenter implements SplashContact.ISplashPresenter {
         RequestParams requestParams = RequestParamsHelper.getBaseRequestParam(MyUrls.createConnection);
         requestParams.addBodyParameter("appid", Values.APP_ID);
         requestParams.addBodyParameter("secret", Values.SECRET);
-        NetWorkUtils.getInstance().get(requestParams, new
+        XUtilsHelper.getInstance().get(requestParams, new
                 NetRequestCallBack<ConnectionResponse>() {
                     @Override
                     protected void onSuccess(ConnectionResponse response) {

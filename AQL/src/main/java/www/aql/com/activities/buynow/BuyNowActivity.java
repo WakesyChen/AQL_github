@@ -51,7 +51,7 @@ import www.aql.com.urls.MyUrls;
 import www.aql.com.utils.MathExtend;
 import www.aql.com.utils.MyUtils;
 import www.aql.com.utils.NetRequestCallBack;
-import www.aql.com.utils.NetWorkUtils;
+import www.aql.com.utils.XUtilsHelper;
 import www.aql.com.utils.RequestParamsHelper;
 import www.aql.com.utils.SPConfig;
 import www.aql.com.utils.SPUtils;
@@ -204,7 +204,7 @@ public class BuyNowActivity extends BaseActivity {
         }
         order.data = new Gson().toJson(list_routeData);
         Log.i("jason", "请求添加订单请求体：" + new Gson().toJson(order));
-        NetWorkUtils.getInstance().post(MyUrls.addOrder + "?token=" + RequestParamsHelper.response.token, order, new
+        XUtilsHelper.getInstance().post(MyUrls.addOrder + "?token=" + RequestParamsHelper.response.token, order, new
                 NetRequestCallBack<AddOrderResponse>() {
                     @Override
                     protected void onSuccess(AddOrderResponse response) {
@@ -387,7 +387,7 @@ public class BuyNowActivity extends BaseActivity {
         updateOrder.thirdorderid = orderNumber;
         updateOrder.state = OrderState.FINISHED_PAY;
         updateOrder.orderid = orderid;
-        NetWorkUtils.getInstance().post(MyUrls.updateOrder + "?token=" + RequestParamsHelper
+        XUtilsHelper.getInstance().post(MyUrls.updateOrder + "?token=" + RequestParamsHelper
                 .response.token, updateOrder, new NetRequestCallBack<UpdateOrderResponse>() {
             @Override
             protected void onSuccess(UpdateOrderResponse response) {

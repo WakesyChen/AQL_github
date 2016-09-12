@@ -69,7 +69,7 @@ public class UrlInfo implements Parcelable {
         this.reserveinfourl = in.readString();
     }
 
-    public static final Parcelable.Creator<UrlInfo> CREATOR = new Parcelable.Creator<UrlInfo>() {
+    public static final Creator<UrlInfo> CREATOR = new Creator<UrlInfo>() {
         @Override
         public UrlInfo createFromParcel(Parcel source) {
             return new UrlInfo(source);

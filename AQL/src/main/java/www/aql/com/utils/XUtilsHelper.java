@@ -16,7 +16,9 @@ import org.xutils.ex.HttpException;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
 
-public class NetWorkUtils {
+import java.io.File;
+
+public class XUtilsHelper {
 
 
     /**
@@ -51,15 +53,15 @@ public class NetWorkUtils {
         }
     }
 
-    private static NetWorkUtils instance;
+    private static XUtilsHelper instance;
     private static Gson gson = new Gson();
 
     /**
      *
      */
-    public static NetWorkUtils getInstance() {
+    public static XUtilsHelper getInstance() {
         if (null == instance) {
-            instance = new NetWorkUtils();
+            instance = new XUtilsHelper();
         }
         return instance;
     }
@@ -204,11 +206,13 @@ public class NetWorkUtils {
 
     //对参数进行封装格式，为了方便以后的维护，在这里可以统一处理头部信息以及一些上传下载的配置
     private RequestParams getRequestParams(Object req, String url) {
-        RequestParams requestParams = new RequestParams(url);
+        RequestParams requestParams = RequestParamsHelper.getBaseRequestParam(url);
         requestParams.setConnectTimeout(15000);
         if (req instanceof String) {
             requestParams.setBodyContent(String.valueOf(req));
-        } else {
+        } else if (req instanceof File)
+            requestParams.addBodyParameter("file", (File) req);
+        else {
             requestParams.setBodyContent(gson.toJson(req));
         }
         return requestParams;

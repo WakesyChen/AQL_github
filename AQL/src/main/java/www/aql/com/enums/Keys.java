@@ -30,4 +30,13 @@ public interface Keys {
     String ACTIVITY = "activity";
 
     String ROUTE = "route";
+
+    String enterpriseusername = "enterpriseusername";
+    String phone = "phone";
+    String identitycard = "identitycard";
+    String managetype = "managetype";
+    String alipayid = "alipayid";
+    String address = "address";
+    String identitycardimage = "identitycardimage";
+    String manageimage = "manageimage";
 }

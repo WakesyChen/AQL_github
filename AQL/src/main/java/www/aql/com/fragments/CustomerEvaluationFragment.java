@@ -24,7 +24,7 @@ import www.aql.com.urls.MyUrls;
 import www.aql.com.utils.ActivitySkipHelper;
 import www.aql.com.utils.MyUtils;
 import www.aql.com.utils.NetRequestCallBack;
-import www.aql.com.utils.NetWorkUtils;
+import www.aql.com.utils.XUtilsHelper;
 import www.aql.com.utils.RequestParamsHelper;
 
 /**
@@ -77,7 +77,7 @@ public class CustomerEvaluationFragment extends Fragment {
         params.addBodyParameter(Keys.ROUTE_ID, routeid);
         params.addBodyParameter(Keys.PAGE, page + "");
         params.addBodyParameter(Keys.ROWS, rows + "");
-        NetWorkUtils.getInstance().get(params, new NetRequestCallBack<EvaluationReponse>() {
+        XUtilsHelper.getInstance().get(params, new NetRequestCallBack<EvaluationReponse>() {
             @Override
             protected void onSuccess(EvaluationReponse response) {
                 Log.i("jason", "请求评论数据：" + response);

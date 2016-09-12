@@ -45,7 +45,7 @@ public class Banner implements Parcelable {
         this.sort = in.readLong();
     }
 
-    public static final Parcelable.Creator<Banner> CREATOR = new Parcelable.Creator<Banner>() {
+    public static final Creator<Banner> CREATOR = new Creator<Banner>() {
         @Override
         public Banner createFromParcel(Parcel source) {
             return new Banner(source);

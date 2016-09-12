@@ -52,7 +52,7 @@ public class Wininfo implements Parcelable {
         this.wintime = in.readString();
     }
 
-    public static final Parcelable.Creator<Wininfo> CREATOR = new Parcelable.Creator<Wininfo>() {
+    public static final Creator<Wininfo> CREATOR = new Creator<Wininfo>() {
         @Override
         public Wininfo createFromParcel(Parcel source) {
             return new Wininfo(source);

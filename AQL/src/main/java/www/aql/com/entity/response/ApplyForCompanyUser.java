@@ -93,7 +93,7 @@ public class ApplyForCompanyUser implements Parcelable {
         this.state = in.readInt();
     }
 
-    public static final Parcelable.Creator<ApplyForCompanyUser> CREATOR = new Parcelable.Creator<ApplyForCompanyUser>
+    public static final Creator<ApplyForCompanyUser> CREATOR = new Creator<ApplyForCompanyUser>
             () {
         @Override
         public ApplyForCompanyUser createFromParcel(Parcel source) {

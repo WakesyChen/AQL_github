@@ -50,7 +50,7 @@ public class ColumnInfo implements Parcelable {
         this.sort = in.readLong();
     }
 
-    public static final Parcelable.Creator<ColumnInfo> CREATOR = new Parcelable.Creator<ColumnInfo>() {
+    public static final Creator<ColumnInfo> CREATOR = new Creator<ColumnInfo>() {
         @Override
         public ColumnInfo createFromParcel(Parcel source) {
             return new ColumnInfo(source);

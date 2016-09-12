@@ -8,7 +8,7 @@ import www.aql.com.entity.response.request.ReqShoppingcart;
 import www.aql.com.enums.Keys;
 import www.aql.com.urls.MyUrls;
 import www.aql.com.utils.NetRequestCallBack;
-import www.aql.com.utils.NetWorkUtils;
+import www.aql.com.utils.XUtilsHelper;
 import www.aql.com.utils.RequestParamsHelper;
 
 /**
@@ -28,7 +28,7 @@ public class ShopCartPresenter implements ShopCartContract.IShopPresenter {
         requestParams.addBodyParameter(Keys.SHOPPINGCART_ID, req.shopingcartid + "");
         requestParams.addBodyParameter(Keys.PAGE, req.page + "");
         requestParams.addBodyParameter(Keys.ROWS, req.rows + "");
-        NetWorkUtils.getInstance().get(requestParams, new NetRequestCallBack<ShoppingcartResponse>() {
+        XUtilsHelper.getInstance().get(requestParams, new NetRequestCallBack<ShoppingcartResponse>() {
             @Override
             protected void onSuccess(ShoppingcartResponse response) {
                 if (response == null) {
@@ -65,7 +65,7 @@ public class ShopCartPresenter implements ShopCartContract.IShopPresenter {
         requestParams.addBodyParameter(Keys.SHOPPINGCART_ID, req.shopingcartid + "");
         requestParams.addBodyParameter(Keys.PAGE, req.page + "");
         requestParams.addBodyParameter(Keys.ROWS, req.rows + "");
-        NetWorkUtils.getInstance().get(requestParams, new NetRequestCallBack<ShoppingcartResponse>() {
+        XUtilsHelper.getInstance().get(requestParams, new NetRequestCallBack<ShoppingcartResponse>() {
             @Override
             protected void onSuccess(ShoppingcartResponse response) {
                 if (response == null) {

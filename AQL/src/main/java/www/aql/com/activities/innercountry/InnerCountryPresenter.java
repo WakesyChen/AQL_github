@@ -12,7 +12,7 @@ import www.aql.com.enums.Keys;
 import www.aql.com.enums.Values;
 import www.aql.com.urls.MyUrls;
 import www.aql.com.utils.NetRequestCallBack;
-import www.aql.com.utils.NetWorkUtils;
+import www.aql.com.utils.XUtilsHelper;
 import www.aql.com.utils.RequestParamsHelper;
 
 /**
@@ -34,7 +34,7 @@ public class InnerCountryPresenter implements InnerCountryContact.IInnerCountryP
         param.addBodyParameter("cityid", routes.cityid + "");
         param.addBodyParameter("page", routes.page + "");
         param.addBodyParameter("rows", routes.rows + "");
-        NetWorkUtils.getInstance().get(param, new NetRequestCallBack<RouteResponse>() {
+        XUtilsHelper.getInstance().get(param, new NetRequestCallBack<RouteResponse>() {
             @Override
             protected void onSuccess(RouteResponse response) {
                 Log.i("jason", "第一次加载国内数据：" + response);
@@ -68,7 +68,7 @@ public class InnerCountryPresenter implements InnerCountryContact.IInnerCountryP
         param.addBodyParameter("cityid", routes.cityid + "");
         param.addBodyParameter("page", routes.page + "");
         param.addBodyParameter("rows", routes.rows + "");
-        NetWorkUtils.getInstance().get(param, new NetRequestCallBack<RouteResponse>() {
+        XUtilsHelper.getInstance().get(param, new NetRequestCallBack<RouteResponse>() {
             @Override
             protected void onSuccess(RouteResponse response) {
                 if (response == null) {
@@ -96,7 +96,7 @@ public class InnerCountryPresenter implements InnerCountryContact.IInnerCountryP
     public void firstLoadBanners(long columnId) {
         RequestParams requestParams = RequestParamsHelper.getBaseRequestParam(MyUrls.getBannersByColumns);
         requestParams.addBodyParameter(Keys.COLUMN_ID, columnId + "");
-        NetWorkUtils.getInstance().get(requestParams, new NetRequestCallBack<BannerResponse>() {
+        XUtilsHelper.getInstance().get(requestParams, new NetRequestCallBack<BannerResponse>() {
             @Override
             protected void onSuccess(BannerResponse response) {
                 Log.i("jason", "获取首页banner图：" + response);
@@ -130,7 +130,7 @@ public class InnerCountryPresenter implements InnerCountryContact.IInnerCountryP
     public void refreshLoadBanners(long columnId) {
         RequestParams requestParams = RequestParamsHelper.getBaseRequestParam(MyUrls.getBannersByColumns);
         requestParams.addBodyParameter(Keys.COLUMN_ID, columnId + "");
-        NetWorkUtils.getInstance().get(requestParams, new NetRequestCallBack<BannerResponse>() {
+        XUtilsHelper.getInstance().get(requestParams, new NetRequestCallBack<BannerResponse>() {
             @Override
             protected void onSuccess(BannerResponse response) {
                 Log.i("jason", "获取首页banner图：" + response);
@@ -169,7 +169,7 @@ public class InnerCountryPresenter implements InnerCountryContact.IInnerCountryP
         requestParams.addBodyParameter(Keys.CIT_ID, routes.cityid);
         requestParams.addBodyParameter(Keys.PAGE, routes.page + "");
         requestParams.addBodyParameter(Keys.ROWS, routes.rows + "");
-        NetWorkUtils.getInstance().get(requestParams, new NetRequestCallBack<RouteResponse>() {
+        XUtilsHelper.getInstance().get(requestParams, new NetRequestCallBack<RouteResponse>() {
             @Override
             protected void onSuccess(RouteResponse response) {
                 if (response == null) {

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="www.aql.com.activities.UserCenterActivity.UserCenterActivity">
+    tools:context="www.aql.com.activities.usercenter.UserCenterActivity">
 
     <RelativeLayout
         android:id="@+id/rl_title"
@@ -195,13 +195,15 @@
                 <TextView
                     android:layout_width="1px"
                     android:layout_height="match_parent"
-                    android:background="@color/gray"/>
+                    android:background="@color/gray"
+                    android:visibility="gone"/>
 
                 <RelativeLayout
                     android:id="@+id/rl_collection"
                     android:layout_width="@dimen/distance_0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:visibility="gone">
 
 
                     <TextView
@@ -236,7 +238,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ll_evaluation_praise_collection"
-                android:layout_marginTop="@dimen/distance_30dp"
                 android:padding="@dimen/distance_10dp"
                 >
 
@@ -256,7 +257,7 @@
                     android:layout_marginLeft="@dimen/distance_10dp"
                     android:layout_toRightOf="@id/img_shoppingcart"
                     android:text="购物车"
-                    android:textColor="@color/gray"/>
+                    android:textColor="@color/black"/>
 
                 <ImageView
                     android:layout_width="@dimen/distance_40dp"
@@ -297,7 +298,7 @@
                     android:layout_marginLeft="@dimen/distance_10dp"
                     android:layout_toRightOf="@id/img_my_order"
                     android:text="我的订单"
-                    android:textColor="@color/gray"/>
+                    android:textColor="@color/black"/>
 
                 <ImageView
                     android:layout_width="@dimen/distance_40dp"
@@ -340,7 +341,7 @@
                     android:layout_marginLeft="@dimen/distance_10dp"
                     android:layout_toRightOf="@id/img_luck_record"
                     android:text="幸运记录"
-                    android:textColor="@color/gray"/>
+                    android:textColor="@color/black"/>
 
                 <ImageView
                     android:layout_width="@dimen/distance_40dp"
@@ -383,7 +384,7 @@
                     android:layout_marginLeft="@dimen/distance_10dp"
                     android:layout_toRightOf="@id/img_my_medal"
                     android:text="我的勋章"
-                    android:textColor="@color/gray"/>
+                    android:textColor="@color/black"/>
 
                 <ImageView
                     android:layout_width="@dimen/distance_40dp"
@@ -426,7 +427,7 @@
                     android:layout_marginLeft="@dimen/distance_10dp"
                     android:layout_toRightOf="@id/img_upload_credential"
                     android:text="上传证件"
-                    android:textColor="@color/gray"/>
+                    android:textColor="@color/black"/>
 
                 <ImageView
                     android:layout_width="@dimen/distance_40dp"
@@ -470,7 +471,7 @@
                     android:layout_marginLeft="@dimen/distance_10dp"
                     android:layout_toRightOf="@id/img_my_red_packet"
                     android:text="我的红包"
-                    android:textColor="@color/gray"/>
+                    android:textColor="@color/black"/>
 
                 <ImageView
                     android:layout_width="@dimen/distance_40dp"
@@ -513,7 +514,7 @@
                     android:layout_marginLeft="@dimen/distance_10dp"
                     android:layout_toRightOf="@id/img_message"
                     android:text="消息"
-                    android:textColor="@color/gray"/>
+                    android:textColor="@color/black"/>
 
                 <ImageView
                     android:layout_width="@dimen/distance_40dp"
@@ -557,7 +558,7 @@
                     android:layout_marginLeft="@dimen/distance_10dp"
                     android:layout_toRightOf="@id/img_activity_competition"
                     android:text="活动赛事"
-                    android:textColor="@color/gray"/>
+                    android:textColor="@color/black"/>
 
                 <ImageView
                     android:layout_width="@dimen/distance_40dp"
@@ -600,7 +601,7 @@
                     android:layout_marginLeft="@dimen/distance_10dp"
                     android:layout_toRightOf="@id/img_extend_vip"
                     android:text="推广会员"
-                    android:textColor="@color/gray"/>
+                    android:textColor="@color/black"/>
 
                 <ImageView
                     android:layout_width="@dimen/distance_40dp"
@@ -642,7 +643,7 @@
                     android:layout_marginLeft="@dimen/distance_10dp"
                     android:layout_toRightOf="@id/img_my_fans"
                     android:text="我的粉丝"
-                    android:textColor="@color/gray"/>
+                    android:textColor="@color/black"/>
 
                 <ImageView
                     android:layout_width="@dimen/distance_40dp"
@@ -685,7 +686,7 @@
                     android:layout_marginLeft="@dimen/distance_10dp"
                     android:layout_toRightOf="@id/img_my_wallet"
                     android:text="我的钱包"
-                    android:textColor="@color/gray"/>
+                    android:textColor="@color/black"/>
 
                 <ImageView
                     android:layout_width="@dimen/distance_40dp"
@@ -729,7 +730,7 @@
                     android:layout_marginLeft="@dimen/distance_10dp"
                     android:layout_toRightOf="@id/img_kefu"
                     android:text="客服"
-                    android:textColor="@color/gray"/>
+                    android:textColor="@color/black"/>
 
                 <ImageView
                     android:layout_width="@dimen/distance_40dp"
@@ -773,13 +774,12 @@
                     android:layout_marginLeft="@dimen/distance_10dp"
                     android:layout_toRightOf="@id/img_setting"
                     android:text="设置"
-                    android:textColor="@color/gray"/>
+                    android:textColor="@color/black"/>
 
                 <ImageView
                     android:layout_width="@dimen/distance_40dp"
                     android:layout_height="@dimen/distance_40dp"
                     android:layout_alignParentRight="true"
-
                     android:scaleType="centerInside"
                     android:src="@drawable/arrow"/>
             </RelativeLayout>

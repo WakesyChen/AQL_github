@@ -21,7 +21,7 @@ public class DbManagerHelper {
 	 * @return
 	 */
 	public static DbManager getDbManager(String dbName, File dbDir, boolean allowTransaction, int dbVersion) {
-		DbManager.DaoConfig daoConfig = new DaoConfig().setAllowTransaction(allowTransaction).setDbName(dbName)
+		DaoConfig daoConfig = new DaoConfig().setAllowTransaction(allowTransaction).setDbName(dbName)
 				.setDbDir(dbDir).setDbVersion(dbVersion);
 		return x.getDb(daoConfig);
 	}
@@ -38,7 +38,7 @@ public class DbManagerHelper {
 	 * @return
 	 */
 	public static DbManager getDbManager(String dbName, File dbDir, int dbVersion) {
-		DbManager.DaoConfig daoConfig = new DaoConfig().setAllowTransaction(false).setDbName(dbName).setDbDir(dbDir)
+		DaoConfig daoConfig = new DaoConfig().setAllowTransaction(false).setDbName(dbName).setDbDir(dbDir)
 				.setDbVersion(dbVersion);
 		return x.getDb(daoConfig);
 	}
@@ -54,7 +54,7 @@ public class DbManagerHelper {
 	 * @return
 	 */
 	public static DbManager getDbManager(String dbName, int dbVersion) {
-		DbManager.DaoConfig daoConfig = new DaoConfig().setAllowTransaction(false).setDbName(dbName)
+		DaoConfig daoConfig = new DaoConfig().setAllowTransaction(false).setDbName(dbName)
 				.setDbVersion(dbVersion);
 		return x.getDb(daoConfig);
 	}
@@ -68,7 +68,7 @@ public class DbManagerHelper {
 	 * @return
 	 */
 	public static DbManager getDbManager(String dbName) {
-		DbManager.DaoConfig daoConfig = new DaoConfig().setAllowTransaction(false).setDbName(dbName);
+		DaoConfig daoConfig = new DaoConfig().setAllowTransaction(false).setDbName(dbName);
 		return x.getDb(daoConfig);
 	}
 }

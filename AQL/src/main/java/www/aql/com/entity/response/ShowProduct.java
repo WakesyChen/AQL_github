@@ -38,7 +38,7 @@ public class ShowProduct implements Parcelable {
         this.imgUrl = in.readString();
     }
 
-    public static final Parcelable.Creator<ShowProduct> CREATOR = new Parcelable.Creator<ShowProduct>() {
+    public static final Creator<ShowProduct> CREATOR = new Creator<ShowProduct>() {
         @Override
         public ShowProduct createFromParcel(Parcel source) {
             return new ShowProduct(source);

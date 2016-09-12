@@ -47,7 +47,7 @@ public class Shoppingcart implements Parcelable {
         this.userselectissues = in.readParcelable(Issue.class.getClassLoader());
     }
 
-    public static final Parcelable.Creator<Shoppingcart> CREATOR = new Parcelable.Creator<Shoppingcart>() {
+    public static final Creator<Shoppingcart> CREATOR = new Creator<Shoppingcart>() {
         @Override
         public Shoppingcart createFromParcel(Parcel source) {
             return new Shoppingcart(source);

@@ -221,7 +221,7 @@ public class RouteDetailActivity extends BaseFragmentActivity implements RouteDe
         //            bundle.putParcelable(Route.class.getName(), route);
         //            bundle.putString(Keys.FROM_WHERE, Values.FROM_ROUTE_DETAIL);
         //            bundle.putParcelable(Keys.CURRENT_ISSUE, currentIssue);
-        //            ActivitySkipHelper.skipToActivityWithData(RouteDetailActivity.this, BuyNowActivity.class, bundle);
+        //            ActivitySkipHelper.skipToActivityWithData(RideActivityDetailActivity.this, BuyNowActivity.class, bundle);
         //        }
     }
 }

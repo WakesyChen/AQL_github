@@ -229,16 +229,6 @@ public class InternationalActivity extends BaseActivity implements Internaltiona
     //滑动到最后一个条目的时候自己去加载更多的数据
     private boolean scrollFlag;
 
-    @Override
-    public void loadFail(String errMsg) {
-
-    }
-
-    @Override
-    public void netException() {
-
-    }
-
     private class MyOnScrollListener implements AbsListView.OnScrollListener {
         public boolean isBottom;
         public int firstVisibleItem;

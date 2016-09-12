@@ -45,7 +45,7 @@ public class AddOrder implements Parcelable {
         this.ordertime = in.readString();
     }
 
-    public static final Parcelable.Creator<AddOrder> CREATOR = new Parcelable.Creator<AddOrder>() {
+    public static final Creator<AddOrder> CREATOR = new Creator<AddOrder>() {
         @Override
         public AddOrder createFromParcel(Parcel source) {
             return new AddOrder(source);

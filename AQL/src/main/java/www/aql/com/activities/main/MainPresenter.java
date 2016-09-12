@@ -12,7 +12,7 @@ import www.aql.com.enums.Keys;
 import www.aql.com.enums.Values;
 import www.aql.com.urls.MyUrls;
 import www.aql.com.utils.NetRequestCallBack;
-import www.aql.com.utils.NetWorkUtils;
+import www.aql.com.utils.XUtilsHelper;
 import www.aql.com.utils.RequestParamsHelper;
 
 /**
@@ -37,7 +37,7 @@ public class MainPresenter implements MainContact.IMainPresenter {
     public void refreshLoadBanners() {
         RequestParams requestParams = RequestParamsHelper.getBaseRequestParam(MyUrls.getBannersByColumns);
         requestParams.addBodyParameter(Keys.COLUMN_ID, Values.HOME_COLUMN_ID + "");
-        NetWorkUtils.getInstance().get(requestParams, new NetRequestCallBack<BannerResponse>() {
+        XUtilsHelper.getInstance().get(requestParams, new NetRequestCallBack<BannerResponse>() {
             @Override
             protected void onSuccess(BannerResponse response) {
                 Log.i("jason", "获取首页banner图：" + response);
@@ -74,7 +74,7 @@ public class MainPresenter implements MainContact.IMainPresenter {
     public void refreshLoadColumnInfo() {
         requestParams = RequestParamsHelper.getBaseRequestParam(MyUrls.getColumnsInfo);
         requestParams.addBodyParameter(Keys.PCOLUMN_ID, Values.HOME_COLUMN_ID + "");
-        NetWorkUtils.getInstance().get(requestParams, new NetRequestCallBack<ColumnInfoResponse>() {
+        XUtilsHelper.getInstance().get(requestParams, new NetRequestCallBack<ColumnInfoResponse>() {
             @Override
             protected void onSuccess(ColumnInfoResponse response) {
                 Log.i("jason", "获取首页分类模块信息：" + response);
@@ -113,7 +113,7 @@ public class MainPresenter implements MainContact.IMainPresenter {
         requestParams.addBodyParameter(Keys.CIT_ID, "");
         requestParams.addBodyParameter(Keys.PAGE, page + "");
         requestParams.addBodyParameter(Keys.ROWS, rows + "");
-        NetWorkUtils.getInstance().get(requestParams, new NetRequestCallBack<RouteResponse>() {
+        XUtilsHelper.getInstance().get(requestParams, new NetRequestCallBack<RouteResponse>() {
             @Override
             protected void onSuccess(RouteResponse response) {
                 Log.i("jason", "获取首页路线列表信息：" + response);
@@ -147,7 +147,7 @@ public class MainPresenter implements MainContact.IMainPresenter {
     public void firstLoadBanners() {
         RequestParams requestParams = RequestParamsHelper.getBaseRequestParam(MyUrls.getBannersByColumns);
         requestParams.addBodyParameter(Keys.COLUMN_ID, Values.HOME_COLUMN_ID + "");
-        NetWorkUtils.getInstance().get(requestParams, new NetRequestCallBack<BannerResponse>() {
+        XUtilsHelper.getInstance().get(requestParams, new NetRequestCallBack<BannerResponse>() {
             @Override
             protected void onSuccess(BannerResponse response) {
                 Log.i("jason", "获取首页banner图：" + response);
@@ -181,7 +181,7 @@ public class MainPresenter implements MainContact.IMainPresenter {
     public void firstLoadColumnInfo() {
         requestParams = RequestParamsHelper.getBaseRequestParam(MyUrls.getColumnsInfo);
         requestParams.addBodyParameter(Keys.PCOLUMN_ID, Values.HOME_COLUMN_ID + "");
-        NetWorkUtils.getInstance().get(requestParams, new NetRequestCallBack<ColumnInfoResponse>() {
+        XUtilsHelper.getInstance().get(requestParams, new NetRequestCallBack<ColumnInfoResponse>() {
             @Override
             protected void onSuccess(ColumnInfoResponse response) {
                 Log.i("jason", "获取首页分类模块信息：" + response);
@@ -220,7 +220,7 @@ public class MainPresenter implements MainContact.IMainPresenter {
         requestParams.addBodyParameter(Keys.CIT_ID, "");
         requestParams.addBodyParameter(Keys.PAGE, page + "");
         requestParams.addBodyParameter(Keys.ROWS, rows + "");
-        NetWorkUtils.getInstance().get(requestParams, new NetRequestCallBack<RouteResponse>() {
+        XUtilsHelper.getInstance().get(requestParams, new NetRequestCallBack<RouteResponse>() {
             @Override
             protected void onSuccess(RouteResponse response) {
                 Log.i("jason", "获取首页路线列表信息：" + response);
@@ -259,7 +259,7 @@ public class MainPresenter implements MainContact.IMainPresenter {
         requestParams.addBodyParameter(Keys.CIT_ID, "");
         requestParams.addBodyParameter(Keys.PAGE, (page++) + "");
         requestParams.addBodyParameter(Keys.ROWS, rows + "");
-        NetWorkUtils.getInstance().get(requestParams, new NetRequestCallBack<RouteResponse>() {
+        XUtilsHelper.getInstance().get(requestParams, new NetRequestCallBack<RouteResponse>() {
             @Override
             protected void onSuccess(RouteResponse response) {
                 Log.i("jason", "获取首页路线列表信息：" + response);

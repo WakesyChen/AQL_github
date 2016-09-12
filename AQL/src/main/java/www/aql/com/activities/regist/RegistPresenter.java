@@ -17,7 +17,7 @@ import www.aql.com.entity.response.VerificationResponse;
 import www.aql.com.enums.Keys;
 import www.aql.com.urls.MyUrls;
 import www.aql.com.utils.NetRequestCallBack;
-import www.aql.com.utils.NetWorkUtils;
+import www.aql.com.utils.XUtilsHelper;
 import www.aql.com.utils.RequestParamsHelper;
 
 /**
@@ -83,7 +83,7 @@ public class RegistPresenter implements RegistContact.IRegistPresenter {
 
             }
         });
-        //        NetWorkUtils.getInstance().get(params, new NetRequestCallBack<RegistResponse>() {
+        //        XUtilsHelper.getInstance().get(params, new NetRequestCallBack<RegistResponse>() {
         //            @Override
         //            protected void onSuccess(RegistResponse response) {
         //                if (response == null) {
@@ -106,7 +106,7 @@ public class RegistPresenter implements RegistContact.IRegistPresenter {
         params.addBodyParameter(Keys.PHONE, phone);
         params.addBodyParameter(Keys.TYPE, type + "");
         params.addBodyParameter(Keys.ACTIVITY, activity);
-        NetWorkUtils.getInstance().get(params, new NetRequestCallBack<VerificationResponse>() {
+        XUtilsHelper.getInstance().get(params, new NetRequestCallBack<VerificationResponse>() {
             @Override
             protected void onSuccess(VerificationResponse response) {
                 if (response == null) {

@@ -92,4 +92,8 @@ public interface MyUrls {
      * 申请企业用户
      */
     public String applyForCompanyUser = service_Url + "/API/AddEnterpriseUser";
+    /**
+     * 获取用户基本信息
+     */
+    public String getUserInfo = service_Url + "/API/GetUserInfo";
 }

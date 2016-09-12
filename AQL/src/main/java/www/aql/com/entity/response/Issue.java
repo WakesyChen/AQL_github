@@ -37,7 +37,7 @@ public class Issue implements Parcelable {
         this.issuesname = in.readString();
     }
 
-    public static final Parcelable.Creator<Issue> CREATOR = new Parcelable.Creator<Issue>() {
+    public static final Creator<Issue> CREATOR = new Creator<Issue>() {
         @Override
         public Issue createFromParcel(Parcel source) {
             return new Issue(source);

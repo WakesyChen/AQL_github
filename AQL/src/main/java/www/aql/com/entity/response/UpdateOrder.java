@@ -37,7 +37,7 @@ public class UpdateOrder implements Parcelable {
         this.state = in.readInt();
     }
 
-    public static final Parcelable.Creator<UpdateOrder> CREATOR = new Parcelable.Creator<UpdateOrder>() {
+    public static final Creator<UpdateOrder> CREATOR = new Creator<UpdateOrder>() {
         @Override
         public UpdateOrder createFromParcel(Parcel source) {
             return new UpdateOrder(source);

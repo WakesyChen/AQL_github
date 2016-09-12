@@ -37,7 +37,7 @@ public class Verification implements Parcelable {
         this.phone = in.readString();
     }
 
-    public static final Parcelable.Creator<Verification> CREATOR = new Parcelable.Creator<Verification>() {
+    public static final Creator<Verification> CREATOR = new Creator<Verification>() {
         @Override
         public Verification createFromParcel(Parcel source) {
             return new Verification(source);
